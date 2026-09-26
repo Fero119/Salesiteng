@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, MessageCircle, ArrowRight, Sparkles, Building, Phone, Mail, MapPin } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { LeadFormData } from '../types';
 
 interface StartNowModalProps {
@@ -198,12 +199,12 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
               </div>
 
               <div className="pt-2">
-                <button
+                <LiquidMetalButton
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold text-xs sm:text-sm transition-all duration-200 shadow-md flex items-center justify-center gap-2"
-                >
-                  {loading ? (
+                  className="w-full justify-center"
+                  width="100%"
+                  label={loading ? (
                     <span>Submitting Request...</span>
                   ) : (
                     <>
@@ -211,7 +212,7 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
                       <ArrowRight className="w-4 h-4 text-orange-400" />
                     </>
                   )}
-                </button>
+                />
               </div>
 
               <p className="text-[11px] text-center text-zinc-400">

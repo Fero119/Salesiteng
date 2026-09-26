@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, Calendar, Clock, Phone, MessageCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 interface StrategyCallModalProps {
   isOpen: boolean;
@@ -131,13 +132,17 @@ export const StrategyCallModal: React.FC<StrategyCallModalProps> = ({ isOpen, on
               </div>
 
               <div className="pt-2">
-                <button
+                <LiquidMetalButton
                   type="submit"
-                  className="w-full py-3.5 rounded-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold text-xs sm:text-sm transition-all shadow-md flex items-center justify-center gap-2"
-                >
-                  <span>Confirm Strategy Session</span>
-                  <ArrowRight className="w-4 h-4 text-orange-400" />
-                </button>
+                  className="w-full justify-center"
+                  width="100%"
+                  label={
+                    <>
+                      <span>Confirm Strategy Session</span>
+                      <ArrowRight className="w-4 h-4 text-orange-400" />
+                    </>
+                  }
+                />
               </div>
             </form>
           </div>

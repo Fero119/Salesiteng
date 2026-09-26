@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Spline from '@splinetool/react-spline';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
-import { ChevronRight, ArrowUpRight, TrendingUp, Sparkles, MessageCircle, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, TrendingUp, Sparkles, ShieldCheck, CheckCircle2, Zap } from 'lucide-react';
 
 interface HeroProps {
   onOpenLeadModal: () => void;
@@ -10,16 +11,45 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo }) => {
   const [activeMetricTab, setActiveMetricTab] = useState<number>(0);
   const [conversionMultiplier, setConversionMultiplier] = useState<number>(1);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    const reveals = heroRef.current?.querySelectorAll('.reveal, .reveal-stagger');
+    reveals?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-[#fafafa] via-white to-[#fafafa]">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-orange-100/40 via-amber-50/30 to-transparent blur-3xl pointer-events-none rounded-full" />
+    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-[#fafafa] via-white to-[#fafafa]" ref={heroRef}>
+      
+      {/* 3D Spline Background */}
+      <div className="absolute inset-0 z-0 opacity-60 mix-blend-multiply pointer-events-none overflow-hidden hidden md:block">
+        <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+      </div>
+
+      {/* Multi-layer ambient glows */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-orange-100/30 via-amber-50/20 to-transparent blur-3xl pointer-events-none rounded-full z-0" />
+      <div className="absolute top-20 left-1/4 w-[400px] h-[300px] bg-gradient-to-tr from-orange-200/15 to-transparent blur-3xl pointer-events-none rounded-full z-0" />
+      <div className="absolute top-20 right-1/4 w-[350px] h-[250px] bg-gradient-to-tl from-amber-100/20 to-transparent blur-3xl pointer-events-none rounded-full z-0" />
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Top Floating Badge & Avatar (matching screenshot 124143 / 123913) */}
+        {/* Top Floating Badge & Avatar */}
         <div className="flex flex-col items-center justify-center text-center">
-          <div className="inline-flex items-center gap-2 p-1 pl-1.5 pr-3.5 rounded-full bg-white/90 border border-zinc-200/80 shadow-xs mb-6 hover:shadow-md transition-all duration-300">
+          <div className="reveal inline-flex items-center gap-2 p-1 pl-1.5 pr-3.5 rounded-full bg-white/90 border border-zinc-200/80 shadow-sm mb-7 hover:shadow-md hover:border-orange-200 transition-all duration-300 cursor-default">
             <div className="relative w-8 h-8 rounded-full p-[2px] bg-gradient-to-tr from-pink-500 via-rose-400 to-orange-400">
               <img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
@@ -27,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
                 className="w-full h-full object-cover rounded-full"
                 referrerPolicy="no-referrer"
               />
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full" />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full animate-pulse" />
             </div>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-zinc-800">
               <span className="text-zinc-500 font-normal">Trusted by 240+ Nigerian SMEs</span>
@@ -38,49 +68,50 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
             </div>
           </div>
 
-          {/* Main Headline (Screenshot: "Unlock Your Leads Generation Potential") */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-950 max-w-4xl mx-auto leading-[1.08] text-balance">
-            Unlock Your Leads <br className="hidden sm:block" />
-            <span className="relative">
-              Generation Potential
+          {/* Main Headline */}
+          <h1 className="reveal text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-950 max-w-4xl mx-auto leading-[1.07] text-balance" style={{transitionDelay: '80ms'}}>
+            Turn Your Business Into a{' '}
+            <span className="relative inline-block">
+              <span className="relative z-10 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text text-transparent">24/7 WhatsApp</span>
             </span>
+            {' '}Lead Machine
           </h1>
 
-          {/* Subtitle explaining SalesSite NG's WaaS value prop */}
-          <p className="mt-6 text-lg sm:text-xl text-zinc-600 max-w-2xl mx-auto font-normal leading-relaxed text-balance">
-            We build 24/7 high-converting sales machines that route leads directly to your WhatsApp.
-            Zero upfront design fees — just a flat <span className="text-zinc-900 font-semibold underline decoration-orange-400 decoration-2 underline-offset-4">₦15,000/mo</span> subscription.
+          {/* Subtitle */}
+          <p className="reveal mt-6 text-lg sm:text-xl text-zinc-600 max-w-2xl mx-auto font-normal leading-relaxed text-balance" style={{transitionDelay: '160ms'}}>
+            We build high-converting sales sites that route paying customers directly to your phone.
+            Zero upfront design fees — just a flat{' '}
+            <span className="text-zinc-900 font-semibold bg-orange-50 px-1.5 py-0.5 rounded-md border border-orange-200/60">₦15,000/mo</span>
+            {' '}subscription. Cancel anytime.
           </p>
 
-          {/* CTAs matching screenshot + LiquidMetalButton integration */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* The specified interactive LiquidMetalButton */}
-            <div className="flex items-center gap-3">
-              <LiquidMetalButton
-                label="Get Started"
-                onClick={() => onOpenLeadModal()}
-              />
-              <button
-                onClick={onOpenMockupDemo}
-                className="h-[46px] px-6 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 hover:border-zinc-300 text-zinc-800 text-sm font-medium transition-all duration-200 flex items-center gap-2 shadow-xs hover:shadow-sm"
-              >
-                <span>View Live SME Demo</span>
-                <ChevronRight className="w-4 h-4 text-zinc-400" />
-              </button>
-            </div>
+          {/* CTAs */}
+          <div className="reveal mt-9 flex flex-col sm:flex-row items-center justify-center gap-3" style={{transitionDelay: '240ms'}}>
+            <LiquidMetalButton
+              label="Get My Free Mockup"
+              onClick={() => onOpenLeadModal()}
+              width={200}
+            />
+            <button
+              onClick={onOpenMockupDemo}
+              className="h-[46px] px-6 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 hover:border-orange-200 text-zinc-800 text-sm font-medium transition-all duration-200 flex items-center gap-2 shadow-xs hover:shadow-md cursor-pointer"
+            >
+              <span>View Live SME Demo</span>
+              <ChevronRight className="w-4 h-4 text-zinc-400" />
+            </button>
           </div>
 
           {/* Micro trust indicators */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-zinc-500">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> 48-Hour Live Delivery
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> 1-Tap WhatsApp Checkout
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Free .ng Domain & Hosting Included
-            </span>
+          <div className="reveal mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-zinc-500" style={{transitionDelay: '320ms'}}>
+            {[
+              { icon: Zap, text: '48-Hour Live Delivery', color: 'text-orange-500' },
+              { icon: CheckCircle2, text: '1-Tap WhatsApp Checkout', color: 'text-emerald-600' },
+              { icon: ShieldCheck, text: 'Free .ng Domain & Hosting', color: 'text-emerald-600' },
+            ].map(({ icon: Icon, text, color }) => (
+              <span key={text} className="flex items-center gap-1.5 bg-white/80 border border-zinc-100 px-3 py-1.5 rounded-full shadow-xs">
+                <Icon className={`w-3.5 h-3.5 ${color}`} /> {text}
+              </span>
+            ))}
           </div>
         </div>
 

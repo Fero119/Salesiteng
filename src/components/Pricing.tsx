@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PRICING_PLANS } from '../data/mockData';
-import { Check, Sparkles, MessageCircle, HelpCircle } from 'lucide-react';
+import { Check, HelpCircle } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
+import { LazySpline } from '@/components/ui/lazy-spline';
 
 interface PricingProps {
   onSelectPlan: (planId: string) => void;
@@ -9,15 +11,35 @@ interface PricingProps {
 export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
   const [currency, setCurrency] = useState<'NGN' | 'USD'>('NGN');
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.06 }
+    );
+    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
+    reveals?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="pricing" className="py-24 bg-[#fafafa] relative border-t border-zinc-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-24 bg-[#fafafa] relative border-t border-zinc-100 section-glow-top overflow-hidden" ref={sectionRef}>
+      {/* 3D Spline Background - Lazy Loaded */}
+      <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply pointer-events-none hidden md:block">
+        <LazySpline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Title (Screenshot 124054) */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        {/* Section Title */}
+        <div className="reveal text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950">
-            Flexible Pricing Options
+            A Flat Fee for a 24/7 Sales Machine
           </h2>
           <p className="mt-4 text-base text-zinc-600 leading-relaxed text-balance">
             Zero upfront build costs. Just a transparent, predictable monthly subscription to keep your sales machine running 24/7.
@@ -57,8 +79,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
           </div>
         </div>
 
-        {/* 3 Pricing Cards (Screenshot 124054) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+        {/* 3 Pricing Cards */}
+        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
           {PRICING_PLANS.map((plan) => {
             const isHighlighted = plan.isPopular;
             const price = currency === 'NGN' ? plan.priceNGN : plan.priceUSD;
@@ -72,8 +94,8 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 key={plan.id}
                 className={`rounded-[36px] p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 relative ${
                   isHighlighted
-                    ? 'bg-[#18181b] text-white card-dark-shadow md:-translate-y-3 z-10'
-                    : 'bg-white text-zinc-900 card-elevated-shadow border border-zinc-100 hover:-translate-y-1'
+                    ? 'bg-[#18181b] text-white card-dark-shadow md:-translate-y-3 z-10 ring-2 ring-orange-500/30'
+                    : 'bg-white text-zinc-900 card-elevated-shadow border border-zinc-100 hover:-translate-y-2 hover:shadow-xl'
                 }`}
               >
                 {/* Card header */}
@@ -135,16 +157,21 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
 
                 {/* Pill Action Button */}
                 <div className="mt-10">
-                  <button
-                    onClick={() => onSelectPlan(plan.id)}
-                    className={`w-full py-3.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 shadow-sm ${
-                      isHighlighted
-                        ? 'bg-orange-500 hover:bg-orange-600 text-white shadow-orange-950/20'
-                        : 'bg-zinc-900 hover:bg-zinc-800 text-white'
-                    }`}
-                  >
-                    {plan.ctaText}
-                  </button>
+                  {!isHighlighted ? (
+                    <LiquidMetalButton
+                      onClick={() => onSelectPlan(plan.id)}
+                      width="100%"
+                      className="w-full justify-center"
+                      label={plan.ctaText}
+                    />
+                  ) : (
+                    <button
+                      onClick={() => onSelectPlan(plan.id)}
+                      className="w-full py-3.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 shadow-sm cursor-pointer btn-shine bg-orange-500 hover:bg-orange-400 text-white shadow-orange-950/20"
+                    >
+                      {plan.ctaText}
+                    </button>
+                  )}
                 </div>
               </div>
             );

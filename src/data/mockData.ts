@@ -17,7 +17,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       'Fast Mobile-Optimized Hosting',
       'Basic Monthly Maintenance'
     ],
-    ctaText: 'Select Basic'
+    ctaText: 'Start My Basic Plan'
   },
   {
     id: 'premium',
@@ -36,7 +36,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       '24/7 Priority Support & Weekly Updates',
       'Paystack / Bank Transfer Integration'
     ],
-    ctaText: 'Start with Premium'
+    ctaText: 'Start My Premium Plan'
   },
   {
     id: 'pro',
@@ -54,7 +54,7 @@ export const PRICING_PLANS: PricingPlan[] = [
       'A/B Testing for Maximum Inquiries',
       'Custom Promo Banners & Seasonal Sales'
     ],
-    ctaText: 'Select Pro'
+    ctaText: 'Start My Pro Plan'
   }
 ];
 

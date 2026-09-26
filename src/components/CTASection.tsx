@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Send } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
+import { LazySpline } from '@/components/ui/lazy-spline';
 
 interface CTASectionProps {
   onOpenLeadModal: () => void;
@@ -8,6 +10,21 @@ interface CTASectionProps {
 export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1 }
+    );
+    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
+    reveals?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,24 +36,36 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
   };
 
   return (
-    <section className="pt-20 pb-0 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="pt-20 pb-0 bg-white relative overflow-hidden" ref={sectionRef}>
+      {/* 3D Spline Background - Lazy Loaded */}
+      <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply pointer-events-none hidden md:block">
+        <LazySpline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Callout (Screenshot 124120) */}
-        <div className="text-center max-w-4xl mx-auto pb-16">
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.12]">
-            <span className="text-orange-500">Transform</span> Your <br />
-            <span className="text-orange-500">Approach</span> to Lead <br />
-            <span>Generation</span>
+        {/* Top Callout */}
+        <div className="reveal text-center max-w-4xl mx-auto pb-16">
+          <span className="text-xs uppercase tracking-widest font-semibold text-orange-600 block mb-4">
+            Ready to grow?
+          </span>
+          <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.1]">
+            Start Closing More{' '}
+            <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Sales on WhatsApp</span>
+            <br />
+            Today
           </h2>
 
-          <div className="mt-8 flex justify-center">
-            <button
+          <div className="mt-10 flex flex-col items-center justify-center">
+            <LiquidMetalButton
               onClick={onOpenLeadModal}
-              className="bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-semibold px-8 py-3.5 rounded-full transition-all duration-200 shadow-sm hover:shadow-md"
-            >
-              Get started
-            </button>
+              width={260}
+              label="Get My Free 48-Hour Mockup"
+            />
+            <p className="mt-4 text-xs font-medium text-zinc-500">
+              Zero upfront design fees · No credit card required to start
+            </p>
           </div>
         </div>
 
@@ -62,17 +91,19 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="relative flex items-center">
+                  <label htmlFor="newsletter-email" className="sr-only">Email address</label>
                   <input
+                    id="newsletter-email"
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Your email"
-                    className="w-full bg-[#27272a] text-white placeholder-zinc-500 text-xs sm:text-sm px-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500 pr-32"
+                    placeholder="Your email address"
+                    className="w-full bg-[#27272a] text-white placeholder-zinc-500 text-xs sm:text-sm px-6 py-4 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 pr-36"
                   />
                   <button
                     type="submit"
-                    className="absolute right-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs sm:text-sm font-semibold px-6 py-2.5 rounded-full transition-colors"
+                    className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-400 text-white text-xs sm:text-sm font-semibold px-6 py-2.5 rounded-full transition-colors cursor-pointer btn-shine flex items-center justify-center"
                   >
                     Subscribe
                   </button>

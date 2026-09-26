@@ -1,5 +1,7 @@
-import React from 'react';
-import { PhoneCall, Code2, Rocket, Check, X, ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { PhoneCall, Code2, Rocket, Check, X, ArrowRight, ShieldCheck } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
+import { LazySpline } from '@/components/ui/lazy-spline';
 
 interface HowItWorksProps {
   onOpenLeadModal: () => void;
@@ -7,6 +9,21 @@ interface HowItWorksProps {
 }
 
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenStrategyCall }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.08 }
+    );
+    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
+    reveals?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
   const steps = [
     {
       step: '01',
@@ -38,16 +55,21 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
   ];
 
   return (
-    <section id="how-it-works" className="py-24 bg-[#fafafa] relative border-t border-zinc-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="py-24 bg-[#fafafa] relative border-t border-zinc-100 section-glow-top overflow-hidden" ref={sectionRef}>
+      {/* 3D Spline Background - Lazy Loaded */}
+      <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply pointer-events-none hidden md:block">
+        <LazySpline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="reveal text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs uppercase tracking-widest font-semibold text-orange-600 block mb-2">
             Simple 3-Step Process
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950">
-            How Website-as-a-Service Works
+            Launch Your WhatsApp Sales Site in 48 Hours
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-600 leading-relaxed text-balance">
             Never pay millions upfront for a dead digital brochure. We build, host, and maintain your 24/7 sales machine for a predictable monthly fee.
@@ -55,13 +77,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
         </div>
 
         {/* 3 Step Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="bg-white rounded-[32px] p-8 border border-zinc-100/90 card-elevated-shadow relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300"
+                className="bg-white rounded-[32px] p-8 border border-zinc-100/90 card-elevated-shadow relative flex flex-col justify-between hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-default"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -171,13 +193,16 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
           </div>
 
           <div className="mt-8 text-center">
-            <button
+            <LiquidMetalButton
               onClick={onOpenStrategyCall}
-              className="inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs sm:text-sm font-semibold px-7 py-3 rounded-full transition-all duration-200 shadow-xs hover:shadow-md"
-            >
-              <span>Schedule Free Strategy Call</span>
-              <ArrowRight className="w-4 h-4 text-orange-400" />
-            </button>
+              width={240}
+              label={
+                <>
+                  <span>Book My Free Strategy Call</span>
+                  <ArrowRight className="w-4 h-4 text-orange-400" />
+                </>
+              }
+            />
           </div>
         </div>
 

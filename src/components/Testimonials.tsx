@@ -1,35 +1,54 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TESTIMONIALS } from '../data/mockData';
 import { ArrowUpRight, Star } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 interface TestimonialsProps {
   onOpenLeadModal: () => void;
 }
 
 export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.08 }
+    );
+    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
+    reveals?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section id="testimonials" className="py-24 bg-white relative overflow-hidden">
+    <section id="testimonials" className="py-24 bg-white relative overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column (Screenshot 124044) */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32">
+          {/* Left Column */}
+          <div className="reveal reveal-left lg:col-span-4 lg:sticky lg:top-32">
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 leading-[1.15]">
-              Hear What <br />
-              They're Saying
+              Join 240+ SMEs <br />
+              Selling on WhatsApp
             </h2>
             <p className="mt-4 text-base text-zinc-500 max-w-sm leading-relaxed">
               Real Nigerian business owners who replaced expensive agencies with SalesSite NG's 24/7 WhatsApp sales engine.
             </p>
             <div className="mt-8">
-              <button
+              <LiquidMetalButton
                 onClick={onOpenLeadModal}
-                className="bg-zinc-900 hover:bg-zinc-800 text-white text-sm font-semibold px-8 py-3.5 rounded-full transition-all duration-200 shadow-xs hover:shadow-md flex items-center gap-2"
-              >
-                <span>Learn more</span>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400" />
-              </button>
+                width={200}
+                label={
+                  <>
+                    <span>Get My Free Mockup</span>
+                    <ArrowUpRight className="w-4 h-4 text-zinc-400" />
+                  </>
+                }
+              />
             </div>
 
             {/* SME stats */}
@@ -50,8 +69,8 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
             </div>
           </div>
 
-          {/* Right Column: Staggered Cards (Screenshot 124044) */}
-          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Right Column: Staggered Cards */}
+          <div className="reveal-stagger lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {TESTIMONIALS.map((t, idx) => (
               <div
                 key={t.id}
@@ -66,7 +85,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
 
                 <div className="relative z-10">
                   <p className="text-sm text-zinc-700 leading-relaxed font-normal">
-                    "{t.quote}"
+                    &ldquo;{t.quote}&rdquo;
                   </p>
                 </div>
 

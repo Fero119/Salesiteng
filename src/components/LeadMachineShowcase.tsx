@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, Check, MessageSquare, Sparkles, TrendingUp, Users, Zap, Shield, PhoneCall } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowUpRight, Check, MessageSquare, TrendingUp, Users, Zap } from 'lucide-react';
+import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 
 interface LeadMachineShowcaseProps {
   onOpenLeadModal: () => void;
@@ -8,27 +9,42 @@ interface LeadMachineShowcaseProps {
 export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpenLeadModal }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [costPerLeadToggle, setCostPerLeadToggle] = useState<number>(193);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.06 }
+    );
+    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
+    reveals?.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="services" className="py-24 bg-white relative">
+    <section id="services" className="py-24 bg-white relative" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header (Screenshot 124010 / 124017) */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Section Header */}
+        <div className="reveal text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950">
-            Transform Your <br />
-            <span className="text-zinc-900">Leads into Revenue</span>
+            Turn Traffic Into <br />
+            <span className="text-zinc-900">High-Paying WhatsApp Customers</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed text-balance">
             Explore how our zero-upfront subscription websites seamlessly convert visitors into instant WhatsApp orders and recurring Nigerian customers.
           </p>
         </div>
 
-        {/* 3-Column Bento Grid matching Screenshot 124010 & 124017 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {/* 3-Column Bento Grid */}
+        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           
           {/* Card 1: Supercharge Your Cost per Lead */}
-          <div className="bg-[#f7f7f8] rounded-[32px] p-7 flex flex-col justify-between border border-zinc-100 hover:shadow-lg transition-all duration-300">
+          <div className="bg-[#f7f7f8] rounded-[32px] p-7 flex flex-col justify-between border border-zinc-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-default">
             <div className="relative h-44 flex items-center justify-center">
               {/* Floating Cost Tag (Screenshot 124010) */}
               <div className="absolute top-2 right-4 bg-white px-5 py-2.5 rounded-2xl shadow-md border border-zinc-100/60 transform rotate-1 hover:rotate-0 transition-transform">
@@ -212,12 +228,11 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
             </div>
 
             <div className="mt-6 flex justify-start">
-              <button
+              <LiquidMetalButton
                 onClick={onOpenLeadModal}
-                className="bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold px-6 py-2.5 rounded-full transition-colors"
-              >
-                Learn more
-              </button>
+                width={120}
+                label="Learn more"
+              />
             </div>
           </div>
 

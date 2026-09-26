@@ -40,34 +40,34 @@ export const Footer: React.FC = () => {
             </a>
           </nav>
 
-          {/* Social Icons (Instagram, Facebook, X) */}
-          <div className="flex items-center gap-5 text-zinc-300">
+          {/* Social Icons */}
+          <div className="flex items-center gap-3 text-zinc-300">
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="hover:text-orange-400 transition-colors"
+              aria-label="SalesSite NG on Instagram"
+              className="w-9 h-9 rounded-full border border-zinc-700 flex items-center justify-center hover:border-orange-500 hover:text-orange-400 transition-all duration-200"
             >
-              <Instagram className="w-5 h-5" />
+              <Instagram className="w-4 h-4" />
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="hover:text-orange-400 transition-colors"
+              aria-label="SalesSite NG on Facebook"
+              className="w-9 h-9 rounded-full border border-zinc-700 flex items-center justify-center hover:border-orange-500 hover:text-orange-400 transition-all duration-200"
             >
-              <Facebook className="w-5 h-5" />
+              <Facebook className="w-4 h-4" />
             </a>
             <a
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="X (formerly Twitter)"
-              className="hover:text-orange-400 transition-colors"
+              aria-label="SalesSite NG on X (formerly Twitter)"
+              className="w-9 h-9 rounded-full border border-zinc-700 flex items-center justify-center hover:border-orange-500 hover:text-orange-400 transition-all duration-200"
             >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
@@ -85,7 +85,8 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-zinc-400 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 text-zinc-400 hover:text-orange-400 transition-colors cursor-pointer px-3 py-1.5 rounded-full hover:bg-zinc-800"
+              aria-label="Scroll to top"
             >
               <span>Back to top</span>
               <ArrowUp className="w-3.5 h-3.5" />
