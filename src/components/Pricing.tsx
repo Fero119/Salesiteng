@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { PRICING_PLANS } from '../data/mockData';
 import { Check, HelpCircle } from 'lucide-react';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
-import { LazySpline } from '@/components/ui/lazy-spline';
 import { motion } from 'motion/react';
 
 interface PricingProps {
@@ -16,11 +15,6 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
 
   return (
     <section id="pricing" className="py-24 bg-white/60 backdrop-blur-lg relative border-t border-zinc-100 section-glow-top overflow-hidden" ref={sectionRef}>
-      {/* 3D Spline Background - Lazy Loaded */}
-      <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply pointer-events-none hidden md:block">
-        <LazySpline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
