@@ -20,13 +20,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-sm font-semibold mb-8 shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-xs sm:text-sm font-semibold mb-8 shadow-sm"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
           </span>
-          ₦30,000 Upfront Setup
+          🎯 Our Mission: Equipping 1,000 Businesses with Premium Sites
         </motion.div>
 
         {/* Title */}
@@ -34,9 +34,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.1] mb-6 max-w-4xl text-balance"
+          className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.1] mb-6 max-w-5xl text-balance"
         >
-          Start growing your <span className="text-orange-600">business</span>
+          Stop Paying Millions for Dead Websites. <br className="hidden md:block" />
+          Get a <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">High-Converting</span> Site for Just ₦30,000.
         </motion.h1>
 
         {/* Description */}
@@ -44,10 +45,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-lg sm:text-xl text-zinc-600 max-w-2xl font-normal leading-relaxed text-balance mb-10"
+          className="text-base sm:text-lg text-zinc-600 max-w-3xl font-normal leading-relaxed text-balance mb-10"
         >
-          Salesite generates qualified B2B leads on autopilot. We handle the heavy lifting while you close the deals. 
-          Get started for <span className="font-semibold text-zinc-900">₦30,000 upfront</span>, then a flat ₦15,000/mo.
+          Traditional agencies overcharge and underdeliver. We build lightning-fast platforms equipped with WhatsApp checkouts, appointment calendars, and booking forms. Streamline your onboarding, boost client retention, and make the absolute best investment for your business—for a fraction of the cost.
         </motion.p>
 
         {/* Buttons */}
