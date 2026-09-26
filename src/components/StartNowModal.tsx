@@ -222,7 +222,7 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
           </div>
         ) : (
           <div className="text-center py-6">
-            <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mx-auto mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 
@@ -244,7 +244,7 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
               </div>
               <div className="flex justify-between">
                 <span className="text-zinc-500">Delivery:</span>
-                <span className="font-semibold text-emerald-600">48 Hours to WhatsApp</span>
+                <span className="font-semibold text-orange-600">48 Hours to WhatsApp</span>
               </div>
             </div>
 
@@ -253,7 +253,7 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-colors"
+                className="w-full py-3.5 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Confirm Instantly on WhatsApp</span>

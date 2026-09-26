@@ -148,7 +148,7 @@ export const StrategyCallModal: React.FC<StrategyCallModalProps> = ({ isOpen, on
           </div>
         ) : (
           <div className="text-center py-6">
-            <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mx-auto mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
 

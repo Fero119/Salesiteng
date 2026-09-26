@@ -18,11 +18,11 @@ export const HowItWorks: React.FC = () => {
       bgHover: 'group-hover:bg-orange-50',
       iconBg: 'bg-orange-100/50'
     },
-    emerald: {
-      dot: 'bg-emerald-500',
-      text: 'text-emerald-500',
-      bgHover: 'group-hover:bg-emerald-50',
-      iconBg: 'bg-emerald-100/50'
+    amber: {
+      dot: 'bg-amber-500',
+      text: 'text-amber-500',
+      bgHover: 'group-hover:bg-amber-50',
+      iconBg: 'bg-amber-100/50'
     }
   };
 
@@ -49,7 +49,7 @@ export const HowItWorks: React.FC = () => {
       description: 'Once satisfied, start your flat ₦15,000/month subscription. We connect your custom domain, handle cloud hosting, maintain SSL security, and update products.',
       icon: Rocket,
       highlight: 'No lock-in, cancel anytime',
-      color: 'emerald' as const
+      color: 'amber' as const
     }
   ];
 

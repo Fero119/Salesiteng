@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-base sm:text-lg text-zinc-600 max-w-3xl font-normal leading-relaxed text-balance mb-10"
         >
-          Traditional agencies overcharge and underdeliver. We build lightning-fast platforms equipped with WhatsApp checkouts, appointment calendars, and booking forms. Streamline your onboarding, boost client retention, and make the absolute best investment for your business—for a fraction of the cost.
+          Launch a premium platform equipped with WhatsApp checkouts, appointment calendars, and booking forms. Streamline onboarding and boost client retention for a fraction of the traditional cost.
         </motion.p>
 
         {/* Buttons */}

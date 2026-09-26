@@ -32,83 +32,105 @@ export const ProblemAgitation: React.FC<ProblemAgitationProps> = ({ onOpenStrate
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="relative flex flex-col md:flex-row items-stretch justify-center gap-8 md:gap-4 lg:gap-12 mt-12">
             
             {/* The Old Way */}
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-[#fcfcfc] rounded-2xl p-6 border border-red-100/70"
+              initial={{ opacity: 0, x: -50, rotate: -5 }}
+              whileInView={{ opacity: 1, x: 0, rotate: -2 }}
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
+              transition={{ duration: 0.8, type: "spring" }}
+              className="flex-1 bg-white/40 backdrop-blur-sm rounded-3xl p-6 md:p-8 border-2 border-red-100 shadow-sm relative z-0 origin-bottom-right"
             >
-              <div className="flex items-center gap-2 mb-4">
-                <motion.div 
-                  animate={{ rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-7 h-7 rounded-full bg-red-100 text-red-600 flex items-center justify-center"
-                >
-                  <X className="w-4 h-4" />
-                </motion.div>
-                <h4 className="text-base font-bold text-zinc-900">The Traditional Agency Way</h4>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center shadow-inner">
+                  <X className="w-5 h-5 stroke-[3]" />
+                </div>
+                <h4 className="text-lg font-bold text-zinc-900 line-through decoration-red-200 decoration-2">The Traditional Agency</h4>
               </div>
 
-              <ul className="space-y-3.5 text-xs sm:text-sm text-zinc-600">
-                <li className="flex items-start gap-2.5">
-                  <span className="text-red-500 font-bold mt-0.5">✕</span>
-                  <span><strong>₦300,000 to ₦800,000 upfront fee</strong> before you even see a single mockup.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-red-500 font-bold mt-0.5">✕</span>
-                  <span><strong>Takes 6 to 12 weeks</strong> of back-and-forth emails and delayed deadlines.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-red-500 font-bold mt-0.5">✕</span>
-                  <span><strong>No WhatsApp integration</strong> — complex bloated checkout carts with 80% abandonment.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-red-500 font-bold mt-0.5">✕</span>
-                  <span><strong>Designer disappears after launch</strong> — you are stuck paying extra for hosting, SSL renewals, and bug fixes.</span>
-                </li>
+              <ul className="space-y-5 text-sm text-zinc-500">
+                {[
+                  "₦300,000+ upfront fee before seeing a mockup.",
+                  "Takes 6 to 12 weeks of delayed deadlines.",
+                  "No WhatsApp integration — 80% cart abandonment.",
+                  "Designer disappears after launch."
+                ].map((text, i) => (
+                  <motion.li 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 + (i * 0.1) }}
+                    className="flex items-start gap-3"
+                  >
+                    <span className="text-red-400 font-bold mt-0.5">✕</span>
+                    <span className="leading-relaxed">{text}</span>
+                  </motion.li>
+                ))}
               </ul>
+            </motion.div>
+
+            {/* VS Badge */}
+            <motion.div 
+              initial={{ scale: 0, opacity: 0, rotate: -180 }}
+              whileInView={{ scale: 1, opacity: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, type: "spring", bounce: 0.6 }}
+              className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-zinc-950 text-white rounded-full items-center justify-center font-black text-xl italic z-20 shadow-[0_0_30px_rgba(249,115,22,0.4)] border-4 border-white"
+            >
+              VS
             </motion.div>
 
             {/* SalesSite NG Way */}
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-gradient-to-br from-orange-50/50 via-white to-amber-50/30 rounded-2xl p-6 border border-orange-200/80 shadow-xs relative"
+              initial={{ opacity: 0, x: 50, rotate: 5 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 2 }}
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ rotate: 0, scale: 1.05 }}
+              transition={{ duration: 0.8, type: "spring", delay: 0.2 }}
+              className="flex-1 bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl p-6 md:p-8 border border-zinc-800 shadow-2xl relative z-10 origin-bottom-left"
             >
-              <div className="flex items-center gap-2 mb-4">
+              {/* Glow behind the card */}
+              <div className="absolute inset-0 bg-orange-500/10 blur-2xl rounded-3xl -z-10" />
+
+              <div className="flex items-center gap-3 mb-6">
                 <motion.div 
                   animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-sm"
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.6)]"
                 >
-                  <Check className="w-4 h-4 stroke-[3]" />
+                  <Check className="w-5 h-5 stroke-[3]" />
                 </motion.div>
-                <h4 className="text-base font-bold text-zinc-955">The SalesSite NG Way (WaaS)</h4>
+                <h4 className="text-xl font-bold text-white">The SalesSite NG Way</h4>
               </div>
 
-              <ul className="space-y-3.5 text-xs sm:text-sm text-zinc-700">
-                <li className="flex items-start gap-2.5">
-                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
-                  <span><strong>₦30,000 upfront design fee</strong>. We build the full working mockup and get you live.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
-                  <span><strong>Live in 48 hours</strong>. Ready to take customer orders on WhatsApp immediately.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
-                  <span><strong>Direct 1-Tap WhatsApp Checkout</strong> tailored for Nigerian shoppers.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-emerald-600 font-bold mt-0.5">✓</span>
-                  <span><strong>Predictable ₦15,000/mo</strong> subscription includes domain, ultra-fast hosting, SSL, and monthly product updates.</span>
-                </li>
+              <ul className="space-y-5 text-sm text-zinc-300">
+                {[
+                  "₦30,000 upfront design fee. We build the mockup first.",
+                  "Live in 48 hours. Ready for orders immediately.",
+                  "Direct 1-Tap WhatsApp Checkout tailored for Nigeria.",
+                  "₦15,000/mo includes hosting, SSL, and updates."
+                ].map((text, i) => (
+                  <motion.li 
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 + (i * 0.1) }}
+                    className="flex items-start gap-3"
+                  >
+                    <motion.span 
+                      animate={{ filter: ["drop-shadow(0px 0px 2px rgba(249,115,22,0.4))", "drop-shadow(0px 0px 6px rgba(249,115,22,0.8))", "drop-shadow(0px 0px 2px rgba(249,115,22,0.4))"] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
+                      className="text-orange-400 font-bold mt-0.5 inline-block"
+                    >
+                      ✓
+                    </motion.span>
+                    <span className="leading-relaxed"><strong className="text-white font-semibold">{text.split('.')[0]}.</strong>{text.substring(text.indexOf('.'))}</span>
+                  </motion.li>
+                ))}
               </ul>
             </motion.div>
 
