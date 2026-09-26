@@ -41,7 +41,7 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
 
   const getWhatsAppLink = () => {
     const text = encodeURIComponent(
-      `Hello SalesSite NG! 👋\nI just requested a Free Zero-Upfront Mockup for my business.\n\n` +
+      `Hello SalesSite NG! 👋\nI just requested a Custom Mockup for my business.\n\n` +
       `🏢 Business: ${formData.businessName || 'My Business'}\n` +
       `🏷️ Industry: ${formData.industry}\n` +
       `📍 Location: ${formData.city}\n` +

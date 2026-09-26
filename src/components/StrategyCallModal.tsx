@@ -28,7 +28,7 @@ export const StrategyCallModal: React.FC<StrategyCallModalProps> = ({ isOpen, on
       `🗓️ Day: ${selectedDay}\n` +
       `⏰ Time: ${selectedTime}\n` +
       `📱 WhatsApp: ${whatsapp}\n\n` +
-      `Looking forward to talking about building our zero-upfront sales site!`
+      `Looking forward to talking about building our high-converting sales site!`
     );
     return `https://wa.me/2348000000000?text=${text}`;
   };

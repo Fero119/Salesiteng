@@ -88,7 +88,7 @@ export default function App() {
       {/* Floating WhatsApp Action Pill for Quick Inquiries */}
       <div className="fixed bottom-6 right-6 z-40">
         <a
-          href="https://wa.me/2348000000000?text=Hello%20SalesSite%20NG!%20I%20am%20interested%20in%20a%20Zero-Upfront%20website%20for%20my%20business."
+          href="https://wa.me/2348000000000?text=Hello%20SalesSite%20NG!%20I%20am%20interested%20in%20a%20high-converting%20website%20for%20my%20business."
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 group"

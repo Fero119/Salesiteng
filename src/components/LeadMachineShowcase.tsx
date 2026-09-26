@@ -29,7 +29,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
             <span className="text-zinc-900">High-Paying WhatsApp Customers</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed text-balance">
-            Explore how our zero-upfront subscription websites seamlessly convert visitors into instant WhatsApp orders and recurring Nigerian customers.
+            Explore how our high-converting subscription websites seamlessly convert visitors into instant WhatsApp orders and recurring Nigerian customers.
           </p>
         </motion.div>
 
