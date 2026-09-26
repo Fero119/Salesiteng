@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface BrandLogoProps {
   className?: string;
@@ -16,7 +17,11 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ className = '', isDark = f
         <div className={`w-2.5 h-2.5 rounded-br-full rounded-tl-sm ${isDark ? 'bg-zinc-300' : 'bg-zinc-700'}`} />
       </div>
       <span className={`text-xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-zinc-900'}`}>
-        SalesSite<span className="text-orange-500 font-extrabold ml-0.5">NG</span>
+        SalesSite<motion.span 
+          animate={{ filter: ["drop-shadow(0px 0px 2px rgba(249,115,22,0.3))", "drop-shadow(0px 0px 8px rgba(249,115,22,0.8))", "drop-shadow(0px 0px 2px rgba(249,115,22,0.3))"] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="text-orange-500 font-extrabold ml-0.5 inline-block"
+        >NG</motion.span>
       </span>
     </div>
   );

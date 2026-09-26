@@ -36,8 +36,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           transition={{ delay: 0.1, duration: 0.6 }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.1] mb-6 max-w-5xl text-balance"
         >
-          Stop Paying Millions for Dead Websites. <br className="hidden md:block" />
-          Get a <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">High-Converting</span> Site for Just ₦30,000.
+          Scale your business, <br className="hidden md:block" />
+          Get a <motion.span 
+            animate={{ filter: ["drop-shadow(0px 0px 4px rgba(249,115,22,0.3))", "drop-shadow(0px 0px 16px rgba(249,115,22,0.8))", "drop-shadow(0px 0px 4px rgba(249,115,22,0.3))"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent inline-block"
+          >
+            High-Converting
+          </motion.span> Site for Just ₦30,000.
         </motion.h1>
 
         {/* Description */}

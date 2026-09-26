@@ -39,7 +39,13 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-950 leading-[1.1]">
             Start Closing More{' '}
             <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Sales on WhatsApp</span>
+            <motion.span 
+              animate={{ filter: ["drop-shadow(0px 0px 4px rgba(249,115,22,0.3))", "drop-shadow(0px 0px 16px rgba(249,115,22,0.8))", "drop-shadow(0px 0px 4px rgba(249,115,22,0.3))"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent inline-block"
+            >
+              Sales on WhatsApp
+            </motion.span>
             <br />
             Today
           </h2>
