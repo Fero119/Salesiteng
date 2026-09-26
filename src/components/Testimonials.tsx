@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { TESTIMONIALS } from '../data/mockData';
 import { ArrowUpRight, Star } from 'lucide-react';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
+import { motion } from 'motion/react';
 
 interface TestimonialsProps {
   onOpenLeadModal: () => void;
@@ -10,19 +11,6 @@ interface TestimonialsProps {
 export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) => {
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.08 }
-    );
-    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
-    reveals?.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
   return (
     <section id="testimonials" className="py-24 bg-white/60 backdrop-blur-lg relative overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +18,13 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column */}
-          <div className="reveal reveal-left lg:col-span-4 lg:sticky lg:top-32">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 lg:sticky lg:top-32"
+          >
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 leading-[1.15]">
               Join 240+ SMEs <br />
               Selling on WhatsApp
@@ -62,26 +56,42 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
                 <p className="text-3xl font-extrabold text-orange-600">4.9/5</p>
                 <div className="flex items-center gap-0.5 mt-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + i * 0.1, type: "spring", stiffness: 300 }}
+                    >
+                      <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                    </motion.div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Staggered Cards */}
-          <div className="reveal-stagger lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {TESTIMONIALS.map((t, idx) => (
-              <div
+              <motion.div
                 key={t.id}
-                className={`bg-white rounded-[32px] p-7 border border-zinc-100/90 card-elevated-shadow relative flex flex-col justify-between hover:-translate-y-1 transition-all duration-300 ${
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.2 }}
+                className={`bg-white rounded-[32px] p-7 border border-zinc-100/90 card-elevated-shadow relative flex flex-col justify-between hover:shadow-xl transition-all duration-300 ${
                   idx % 2 === 1 ? 'sm:mt-8' : ''
                 }`}
               >
                 {/* Subtle background quotation watermark motif */}
-                <div className="absolute top-4 right-6 text-7xl font-serif text-zinc-100/70 select-none pointer-events-none">
+                <motion.div 
+                  animate={{ rotate: [-2, 2, -2] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-4 right-6 text-7xl font-serif text-zinc-100/70 select-none pointer-events-none"
+                >
                   “
-                </div>
+                </motion.div>
 
                 <div className="relative z-10">
                   <p className="text-sm text-zinc-700 leading-relaxed font-normal">
@@ -107,11 +117,15 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md">
+                  <motion.span 
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.3 }}
+                    className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md"
+                  >
                     {t.metric}
-                  </span>
+                  </motion.span>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 

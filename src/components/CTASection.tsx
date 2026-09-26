@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { LazySpline } from '@/components/ui/lazy-spline';
+import { motion } from 'motion/react';
 
 interface CTASectionProps {
   onOpenLeadModal: () => void;
@@ -11,20 +12,6 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.1 }
-    );
-    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
-    reveals?.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +32,13 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Callout */}
-        <div className="reveal text-center max-w-4xl mx-auto pb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-4xl mx-auto pb-16"
+        >
           <span className="text-xs uppercase tracking-widest font-semibold text-orange-600 block mb-4">
             Ready to grow?
           </span>
@@ -67,11 +60,17 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
               ₦30,000 upfront setup · No credit card required to start
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Dark Container "Stay Updated with the Newest" (Screenshot 124120) */}
-        <div className="bg-[#18181b] rounded-t-[40px] text-white p-8 sm:p-14 lg:p-16">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+        {/* Dark Container "Stay Updated with the Newest" */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
+          className="bg-[#18181b] rounded-t-[40px] text-white p-8 sm:p-14 lg:p-16 relative"
+        >
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative z-10">
             <div className="max-w-md">
               <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
                 Stay Updated <br />
@@ -85,10 +84,14 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
             {/* Newsletter form with Orange Button */}
             <div className="w-full lg:max-w-md">
               {subscribed ? (
-                <div className="bg-zinc-900 border border-emerald-500/40 text-emerald-400 px-6 py-4 rounded-full flex items-center gap-3">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="bg-zinc-900 border border-emerald-500/40 text-emerald-400 px-6 py-4 rounded-full flex items-center gap-3"
+                >
                   <CheckCircle2 className="w-5 h-5" />
                   <span className="text-sm font-medium">You're on the list! Welcome aboard.</span>
-                </div>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubscribe} className="relative flex items-center">
                   <label htmlFor="newsletter-email" className="sr-only">Email address</label>
@@ -111,7 +114,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

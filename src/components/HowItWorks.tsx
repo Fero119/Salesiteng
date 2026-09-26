@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { PhoneCall, Code2, Rocket, Check, X, ArrowRight, ShieldCheck } from 'lucide-react';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { LazySpline } from '@/components/ui/lazy-spline';
+import { motion } from 'motion/react';
 
 interface HowItWorksProps {
   onOpenLeadModal: () => void;
@@ -11,19 +12,6 @@ interface HowItWorksProps {
 export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenStrategyCall }) => {
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.08 }
-    );
-    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
-    reveals?.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
   const steps = [
     {
       step: '01',
@@ -64,7 +52,13 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="reveal text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <span className="text-xs uppercase tracking-widest font-semibold text-orange-600 block mb-2">
             Simple 3-Step Process
           </span>
@@ -74,25 +68,33 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
           <p className="mt-4 text-base sm:text-lg text-zinc-600 leading-relaxed text-balance">
             Never pay millions upfront for a dead digital brochure. We build, host, and maintain your 24/7 sales machine for a predictable monthly fee.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 Step Cards */}
-        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white rounded-[32px] p-8 border border-zinc-100/90 card-elevated-shadow relative flex flex-col justify-between hover:-translate-y-2 hover:shadow-xl transition-all duration-300 cursor-default"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-white rounded-[32px] p-8 border border-zinc-100/90 card-elevated-shadow relative flex flex-col justify-between hover:shadow-xl transition-all duration-300"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <span className="text-xs font-mono font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-full">
                       Step {item.step}
                     </span>
-                    <div className="w-10 h-10 rounded-2xl bg-zinc-900 text-white flex items-center justify-center">
+                    <motion.div 
+                      animate={{ y: [0, -6, 0] }}
+                      transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
+                      className="w-10 h-10 rounded-2xl bg-zinc-900 text-white flex items-center justify-center shadow-sm"
+                    >
                       <Icon className="w-5 h-5 text-orange-400" />
-                    </div>
+                    </motion.div>
                   </div>
 
                   <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
@@ -113,13 +115,20 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
                     {item.highlight}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Old Way vs SalesSite NG Comparison Table */}
-        <div id="about" className="mt-20 bg-white rounded-[32px] p-8 md:p-12 border border-zinc-100/80 card-elevated-shadow">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          id="about" 
+          className="mt-20 bg-white rounded-[32px] p-8 md:p-12 border border-zinc-100/80 card-elevated-shadow"
+        >
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-semibold uppercase tracking-wider text-orange-600">The Problem & Solution</span>
             <h3 className="text-2xl sm:text-3xl font-bold text-zinc-950 mt-1">
@@ -133,11 +142,21 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             
             {/* The Old Way */}
-            <div className="bg-[#fcfcfc] rounded-2xl p-6 border border-red-100/70">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-[#fcfcfc] rounded-2xl p-6 border border-red-100/70"
+            >
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-7 h-7 rounded-full bg-red-100 text-red-600 flex items-center justify-center">
+                <motion.div 
+                  animate={{ rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-7 h-7 rounded-full bg-red-100 text-red-600 flex items-center justify-center"
+                >
                   <X className="w-4 h-4" />
-                </div>
+                </motion.div>
                 <h4 className="text-base font-bold text-zinc-900">The Traditional Agency Way</h4>
               </div>
 
@@ -159,14 +178,24 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
                   <span><strong>Designer disappears after launch</strong> — you are stuck paying extra for hosting, SSL renewals, and bug fixes.</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* SalesSite NG Way */}
-            <div className="bg-gradient-to-br from-orange-50/50 via-white to-amber-50/30 rounded-2xl p-6 border border-orange-200/80 shadow-xs relative">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-gradient-to-br from-orange-50/50 via-white to-amber-50/30 rounded-2xl p-6 border border-orange-200/80 shadow-xs relative"
+            >
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center">
+                <motion.div 
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-sm"
+                >
                   <Check className="w-4 h-4 stroke-[3]" />
-                </div>
+                </motion.div>
                 <h4 className="text-base font-bold text-zinc-950">The SalesSite NG Way (WaaS)</h4>
               </div>
 
@@ -188,11 +217,17 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
                   <span><strong>Predictable ₦15,000/mo</strong> subscription includes domain, ultra-fast hosting, SSL, and monthly product updates.</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
           </div>
 
-          <div className="mt-8 text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+            className="mt-8 text-center"
+          >
             <LiquidMetalButton
               onClick={onOpenStrategyCall}
               width={240}
@@ -203,8 +238,8 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
                 </>
               }
             />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
       </div>
     </section>

@@ -3,6 +3,7 @@ import { PRICING_PLANS } from '../data/mockData';
 import { Check, HelpCircle } from 'lucide-react';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { LazySpline } from '@/components/ui/lazy-spline';
+import { motion } from 'motion/react';
 
 interface PricingProps {
   onSelectPlan: (planId: string) => void;
@@ -12,20 +13,6 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
   const [currency, setCurrency] = useState<'NGN' | 'USD'>('NGN');
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      },
-      { threshold: 0.06 }
-    );
-    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
-    reveals?.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section id="pricing" className="py-24 bg-white/60 backdrop-blur-lg relative border-t border-zinc-100 section-glow-top overflow-hidden" ref={sectionRef}>
@@ -37,7 +24,13 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Title */}
-        <div className="reveal text-center max-w-3xl mx-auto mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-12"
+        >
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950">
             A Flat Fee for a 24/7 Sales Machine
           </h2>
@@ -77,11 +70,11 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
               <span>with annual billing</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 3 Pricing Cards */}
-        <div className="reveal-stagger grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
-          {PRICING_PLANS.map((plan) => {
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+          {PRICING_PLANS.map((plan, index) => {
             const isHighlighted = plan.isPopular;
             const price = currency === 'NGN' ? plan.priceNGN : plan.priceUSD;
             const formattedPrice =
@@ -90,8 +83,12 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                 : `$${billingCycle === 'annual' ? Math.round(price * 10 / 12) : price}`;
 
             return (
-              <div
+              <motion.div
                 key={plan.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
                 className={`rounded-[36px] p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 relative ${
                   isHighlighted
                     ? 'bg-[#18181b] text-white card-dark-shadow md:-translate-y-3 z-10 ring-2 ring-orange-500/30'
@@ -105,9 +102,13 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                       {plan.name}
                     </h3>
                     {isHighlighted && (
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-orange-400 bg-orange-950/80 border border-orange-500/40 px-2.5 py-1 rounded-full">
+                      <motion.span 
+                        animate={{ y: [0, -4, 0] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                        className="text-[10px] uppercase font-bold tracking-wider text-orange-400 bg-orange-950/80 border border-orange-500/40 px-2.5 py-1 rounded-full"
+                      >
                         Most Popular
-                      </span>
+                      </motion.span>
                     )}
                   </div>
 
@@ -115,7 +116,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                     {plan.subtitle}
                   </p>
 
-                  {/* Price display with orange accent on highlighted card (Screenshot 124054) */}
+                  {/* Price display with orange accent on highlighted card */}
                   <div className="mt-8 pb-6 border-b border-zinc-200/40 dark:border-zinc-800">
                     <div className="flex items-baseline">
                       <span
@@ -173,13 +174,19 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                     </button>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Enterprise / Custom note */}
-        <div className="mt-14 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-14 text-center"
+        >
           <p className="text-xs text-zinc-500 flex items-center justify-center gap-1.5">
             <HelpCircle className="w-3.5 h-3.5 text-zinc-400" />
             <span>Need a custom e-commerce portal with Paystack or multi-warehouse inventory?</span>
@@ -190,7 +197,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
               Talk to our Lagos engineering team →
             </button>
           </p>
-        </div>
+        </motion.div>
 
       </div>
     </section>

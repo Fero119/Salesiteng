@@ -1,26 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { FAQ_ITEMS } from '../data/mockData';
 import { Plus, Minus } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 export const FAQ: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>(FAQ_ITEMS[0].id);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.08 }
-    );
-    const reveals = sectionRef.current?.querySelectorAll('.reveal, .reveal-stagger');
-    reveals?.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
 
   const toggleFAQ = (id: string) => {
     setOpenId(openId === id ? null : id);
@@ -31,7 +16,13 @@ export const FAQ: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Title */}
-        <div className="reveal text-center mb-14">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
+        >
           <span className="text-xs uppercase tracking-widest font-semibold text-orange-600 block mb-3">
             Got Questions?
           </span>
@@ -43,15 +34,19 @@ export const FAQ: React.FC = () => {
           <p className="mt-3 text-sm text-zinc-500 max-w-md mx-auto">
             Everything you need to know about our Website-as-a-Service model for Nigerian businesses.
           </p>
-        </div>
+        </motion.div>
 
         {/* Accordion Rows */}
-        <div className="reveal-stagger space-y-3">
-          {FAQ_ITEMS.map((item) => {
+        <div className="space-y-3">
+          {FAQ_ITEMS.map((item, index) => {
             const isOpen = openId === item.id;
             return (
-              <div
+              <motion.div
                 key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={`rounded-2xl overflow-hidden border transition-all duration-200 ${
                   isOpen
                     ? 'bg-white border-orange-200/60 shadow-sm'
@@ -78,18 +73,24 @@ export const FAQ: React.FC = () => {
                   </div>
                 </button>
 
-                <div
-                  id={`faq-answer-${item.id}`}
-                  className={`faq-answer${isOpen ? ' open' : ''}`}
-                  role="region"
-                >
-                  <div className="faq-answer-inner">
-                    <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-200/50">
-                      {item.answer}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      id={`faq-answer-${item.id}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      role="region"
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-zinc-600 leading-relaxed border-t border-zinc-200/50">
+                        {item.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
