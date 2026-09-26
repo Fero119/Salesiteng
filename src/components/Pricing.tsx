@@ -42,7 +42,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
             A Flat Fee for a 24/7 Sales Machine
           </h2>
           <p className="mt-4 text-base text-zinc-600 leading-relaxed text-balance">
-            Zero upfront build costs. Just a transparent, predictable monthly subscription to keep your sales machine running 24/7.
+            A flat ₦30,000 upfront setup fee. Then a transparent, predictable monthly subscription to keep your sales machine running 24/7.
           </p>
 
           {/* Currency & Billing Toggles */}
@@ -130,7 +130,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                       </span>
                     </div>
                     <span className="text-[11px] text-zinc-400 mt-1 block">
-                      ₦0 setup fee · Cancel anytime
+                      ₦30,000 / $50 setup fee · Cancel anytime
                     </span>
                   </div>
 

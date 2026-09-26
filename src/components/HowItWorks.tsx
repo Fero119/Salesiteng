@@ -28,11 +28,11 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
     {
       step: '01',
       title: 'Free Strategy Call & Mockup',
-      subtitle: 'We study your business & build your prototype for ₦0 upfront.',
+      subtitle: 'We study your business & build your prototype for a ₦30,000 upfront fee.',
       description:
         'Share your Instagram page, current product photos, or price list. In 24 hours, our Lagos engineering team crafts a fully custom mobile web mockup wired with WhatsApp 1-tap checkout.',
       icon: PhoneCall,
-      highlight: 'Zero financial commitment'
+      highlight: 'Low financial commitment'
     },
     {
       step: '02',
@@ -173,7 +173,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onOpenLeadModal, onOpenS
               <ul className="space-y-3.5 text-xs sm:text-sm text-zinc-700">
                 <li className="flex items-start gap-2.5">
                   <span className="text-emerald-600 font-bold mt-0.5">✓</span>
-                  <span><strong>₦0 upfront design fee</strong>. We build the full working mockup risk-free.</span>
+                  <span><strong>₦30,000 upfront design fee</strong>. We build the full working mockup and get you live.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-emerald-600 font-bold mt-0.5">✓</span>

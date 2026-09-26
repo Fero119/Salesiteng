@@ -64,7 +64,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
               label="Get My Free 48-Hour Mockup"
             />
             <p className="mt-4 text-xs font-medium text-zinc-500">
-              Zero upfront design fees · No credit card required to start
+              ₦30,000 upfront setup · No credit card required to start
             </p>
           </div>
         </div>

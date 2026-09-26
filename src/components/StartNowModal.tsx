@@ -70,13 +70,13 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
           <div>
             <div className="mb-6">
               <span className="text-[11px] uppercase tracking-wider font-bold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-full">
-                Zero Upfront Risk
+                Low Upfront Risk
               </span>
               <h3 className="text-2xl font-bold text-zinc-950 mt-2">
                 Request Your Free SME Mockup
               </h3>
               <p className="text-xs sm:text-sm text-zinc-500 mt-1">
-                Tell us about your business. We'll design a 24/7 WhatsApp sales engine mockup in 48 hours for ₦0 upfront.
+                Tell us about your business. We'll design a 24/7 WhatsApp sales engine mockup in 48 hours for ₦30,000 upfront.
               </p>
             </div>
 
@@ -240,7 +240,7 @@ export const StartNowModal: React.FC<StartNowModalProps> = ({
               </div>
               <div className="flex justify-between">
                 <span className="text-zinc-500">Plan:</span>
-                <span className="font-semibold text-zinc-900">{formData.selectedPlan.toUpperCase()} (₦0 upfront)</span>
+                <span className="font-semibold text-zinc-900">{formData.selectedPlan.toUpperCase()} (₦30,000 upfront)</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-zinc-500">Delivery:</span>

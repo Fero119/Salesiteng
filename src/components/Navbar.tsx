@@ -152,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadModal, onOpenStrategyC
                 }}
                 className="w-full justify-center"
                 width={300}
-                label="Get My Mockup (Zero Upfront)"
+                label="Get My Mockup"
               />
             </div>
           </nav>

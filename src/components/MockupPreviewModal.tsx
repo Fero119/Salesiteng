@@ -234,7 +234,7 @@ export const MockupPreviewModal: React.FC<MockupPreviewModalProps> = ({
         {/* Action footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-zinc-800">
           <p className="text-xs text-zinc-400">
-            Want this exact sales machine for your business? We build yours in 48 hours for ₦0 upfront.
+            Want this exact sales machine for your business? We build yours in 48 hours for ₦30,000 upfront.
           </p>
 
           <button
@@ -244,7 +244,7 @@ export const MockupPreviewModal: React.FC<MockupPreviewModalProps> = ({
             }}
             className="w-full sm:w-auto px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm"
           >
-            Claim Your Free Mockup (₦0 Upfront)
+            Claim Your Custom Mockup (₦30,000 Upfront)
           </button>
         </div>
 

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Spline from '@splinetool/react-spline';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
-import { ChevronRight, TrendingUp, Sparkles, ShieldCheck, CheckCircle2, Zap } from 'lucide-react';
+import { ChevronRight, Star, CheckCircle2 } from 'lucide-react';
 
 interface HeroProps {
   onOpenLeadModal: () => void;
@@ -9,324 +9,182 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo }) => {
-  const [activeMetricTab, setActiveMetricTab] = useState<number>(0);
-  const [conversionMultiplier, setConversionMultiplier] = useState<number>(1);
-  const heroRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-    );
-
-    const reveals = heroRef.current?.querySelectorAll('.reveal, .reveal-stagger');
-    reveals?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-[#fafafa] via-white to-[#fafafa]" ref={heroRef}>
+    <section ref={containerRef} id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-white">
+      {/* Background gradients */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-50/60 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-50/60 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 pointer-events-none" />
       
-      {/* 3D Spline Background */}
-      <div className="absolute inset-0 z-0 opacity-60 mix-blend-multiply pointer-events-none overflow-hidden hidden md:block">
-        <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
-      </div>
-
-      {/* Multi-layer ambient glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-orange-100/30 via-amber-50/20 to-transparent blur-3xl pointer-events-none rounded-full z-0" />
-      <div className="absolute top-20 left-1/4 w-[400px] h-[300px] bg-gradient-to-tr from-orange-200/15 to-transparent blur-3xl pointer-events-none rounded-full z-0" />
-      <div className="absolute top-20 right-1/4 w-[350px] h-[250px] bg-gradient-to-tl from-amber-100/20 to-transparent blur-3xl pointer-events-none rounded-full z-0" />
-      {/* Subtle grid overlay */}
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Top Floating Badge & Avatar */}
-        <div className="flex flex-col items-center justify-center text-center">
-          <div className="reveal inline-flex items-center gap-2 p-1 pl-1.5 pr-3.5 rounded-full bg-white/90 border border-zinc-200/80 shadow-sm mb-7 hover:shadow-md hover:border-orange-200 transition-all duration-300 cursor-default">
-            <div className="relative w-8 h-8 rounded-full p-[2px] bg-gradient-to-tr from-pink-500 via-rose-400 to-orange-400">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
-                alt="Nigerian SME Founder"
-                className="w-full h-full object-cover rounded-full"
-                referrerPolicy="no-referrer"
-              />
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full animate-pulse" />
-            </div>
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-zinc-800">
-              <span className="text-zinc-500 font-normal">Trusted by 240+ Nigerian SMEs</span>
-              <span className="text-zinc-300">·</span>
-              <span className="text-orange-600 font-medium flex items-center gap-0.5">
-                Zero Upfront Cost <Sparkles className="w-3 h-3 inline" />
-              </span>
-            </div>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="reveal text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-950 max-w-4xl mx-auto leading-[1.07] text-balance" style={{transitionDelay: '80ms'}}>
-            Turn Your Business Into a{' '}
-            <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 bg-clip-text text-transparent">24/7 WhatsApp</span>
-            </span>
-            {' '}Lead Machine
-          </h1>
-
-          {/* Subtitle */}
-          <p className="reveal mt-6 text-lg sm:text-xl text-zinc-600 max-w-2xl mx-auto font-normal leading-relaxed text-balance" style={{transitionDelay: '160ms'}}>
-            We build high-converting sales sites that route paying customers directly to your phone.
-            Zero upfront design fees — just a flat{' '}
-            <span className="text-zinc-900 font-semibold bg-orange-50 px-1.5 py-0.5 rounded-md border border-orange-200/60">₦15,000/mo</span>
-            {' '}subscription. Cancel anytime.
-          </p>
-
-          {/* CTAs */}
-          <div className="reveal mt-9 flex flex-col sm:flex-row items-center justify-center gap-3" style={{transitionDelay: '240ms'}}>
-            <LiquidMetalButton
-              label="Get My Free Mockup"
-              onClick={() => onOpenLeadModal()}
-              width={200}
-            />
-            <button
-              onClick={onOpenMockupDemo}
-              className="h-[46px] px-6 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 hover:border-orange-200 text-zinc-800 text-sm font-medium transition-all duration-200 flex items-center gap-2 shadow-xs hover:shadow-md cursor-pointer"
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column: Text & CTAs */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-start text-left"
+          >
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-semibold mb-6"
             >
-              <span>View Live SME Demo</span>
-              <ChevronRight className="w-4 h-4 text-zinc-400" />
-            </button>
-          </div>
-
-          {/* Micro trust indicators */}
-          <div className="reveal mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-zinc-500" style={{transitionDelay: '320ms'}}>
-            {[
-              { icon: Zap, text: '48-Hour Live Delivery', color: 'text-orange-500' },
-              { icon: CheckCircle2, text: '1-Tap WhatsApp Checkout', color: 'text-emerald-600' },
-              { icon: ShieldCheck, text: 'Free .ng Domain & Hosting', color: 'text-emerald-600' },
-            ].map(({ icon: Icon, text, color }) => (
-              <span key={text} className="flex items-center gap-1.5 bg-white/80 border border-zinc-100 px-3 py-1.5 rounded-full shadow-xs">
-                <Icon className={`w-3.5 h-3.5 ${color}`} /> {text}
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-            ))}
-          </div>
-        </div>
+              ₦30,000 Upfront Setup
+            </motion.div>
 
-        {/* Floating Analytics & Interactive Metric Cards Gallery (Screenshots 123913, 123924, 123954, 124003) */}
-        <div className="mt-14 sm:mt-20 relative">
-          {/* Subtle floating badge chips around the cards (Screenshots 123954, 124003) */}
-          <div className="hidden lg:block absolute -top-8 left-12 z-20 animate-float-slow">
-            <div className="flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-zinc-100 shadow-lg text-xs font-medium text-zinc-800">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>Game-Changing Platform!</span>
-              <span className="text-zinc-400">·</span>
-              <span className="text-orange-600 font-semibold">₦2.4M Sales</span>
-            </div>
-          </div>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.1] mb-6 text-balance"
+            >
+              Start growing your <span className="text-emerald-600">business</span>
+            </motion.h1>
 
-          <div className="hidden lg:block absolute -top-6 right-16 z-20 animate-float-reverse">
-            <div className="flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-zinc-100 shadow-lg text-xs font-medium text-zinc-800">
-              <span className="w-2 h-2 rounded-full bg-amber-400" />
-              <span>Lagos</span>
-              <span className="w-2 h-2 rounded-full bg-blue-400" />
-              <span>Abuja</span>
-              <span className="w-2 h-2 rounded-full bg-purple-400" />
-              <span>Port Harcourt</span>
-            </div>
-          </div>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-lg sm:text-xl text-zinc-600 max-w-xl font-normal leading-relaxed text-balance mb-8"
+            >
+              Salesite generates qualified B2B leads on autopilot. We handle the heavy lifting while you close the deals. 
+              Get started for <span className="font-semibold text-zinc-900">₦30,000 upfront</span>, then a flat ₦15,000/mo.
+            </motion.p>
 
-          {/* Cards Container with smooth overflow & perspective */}
-          <div className="w-full overflow-x-auto no-scrollbar pb-6 pt-2">
-            <div className="min-w-[1020px] flex items-center justify-center gap-5 px-4">
-              
-              {/* Card 1: Conversion Rate with 4 Yellow Bars (Screenshot 123913) */}
-              <div
-                onClick={() => setConversionMultiplier(prev => prev === 1 ? 1.25 : 1)}
-                className="w-[185px] bg-white rounded-3xl p-5 border border-zinc-100/80 card-elevated-shadow transition-all duration-300 hover:-translate-y-1 cursor-pointer select-none group"
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            >
+              <LiquidMetalButton
+                label="Start Generating Leads"
+                onClick={onOpenLeadModal}
+                width={240}
+              />
+              <button
+                onClick={onOpenMockupDemo}
+                className="h-[46px] px-6 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:shadow-md w-full sm:w-auto"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold text-zinc-900 leading-tight">
-                    Conversion<br />Rate
-                  </span>
-                  <div className="w-6 h-6 rounded-full bg-zinc-100 group-hover:bg-zinc-200 flex items-center justify-center transition-colors">
-                    <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
-                  </div>
-                </div>
+                <span>View Live Demo</span>
+                <ChevronRight className="w-4 h-4 text-zinc-400" />
+              </button>
+            </motion.div>
+          </motion.div>
 
-                <div className="relative h-28 flex items-end justify-between gap-1.5 pt-4">
-                  {/* Subtle dotted baseline */}
-                  <div className="absolute top-1/2 left-0 right-0 border-b border-dashed border-zinc-200" />
+          {/* Right Column: Floating Cards (3D composition) */}
+          <div className="relative h-[500px] lg:h-[600px] w-full mt-8 lg:mt-0 perspective-1000">
+            {/* Base gradient blob */}
+            <motion.div 
+              animate={{ scale: [1, 1.05, 1], rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              className="absolute inset-0 bg-gradient-to-tr from-emerald-100 via-teal-50 to-blue-50 rounded-[40px] blur-xl opacity-50 max-w-[400px] max-h-[500px] m-auto"
+            />
 
-                  {/* Bar 1 */}
-                  <div className="flex-1 flex flex-col items-center gap-1.5 z-10">
-                    <div
-                      style={{ height: `${Math.min(90, 61 * conversionMultiplier)}%` }}
-                      className="w-full bg-amber-200/90 rounded-md transition-all duration-500 flex items-center justify-center"
-                    >
-                      <span className="text-[10px] font-bold text-amber-900">61%</span>
-                    </div>
-                  </div>
-
-                  {/* Bar 2 */}
-                  <div className="flex-1 flex flex-col items-center gap-1.5 z-10">
-                    <div
-                      style={{ height: `${Math.min(96, 73 * conversionMultiplier)}%` }}
-                      className="w-full bg-amber-300 rounded-md transition-all duration-500 flex items-center justify-center shadow-xs"
-                    >
-                      <span className="text-[10px] font-bold text-amber-950">73%</span>
-                    </div>
-                  </div>
-
-                  {/* Bar 3 */}
-                  <div className="flex-1 flex flex-col items-center gap-1.5 z-10">
-                    <div
-                      style={{ height: `${Math.min(70, 32 * conversionMultiplier)}%` }}
-                      className="w-full bg-amber-200/80 rounded-md transition-all duration-500 flex items-center justify-center"
-                    >
-                      <span className="text-[10px] font-bold text-amber-900">32%</span>
-                    </div>
-                  </div>
-
-                  {/* Bar 4 */}
-                  <div className="flex-1 flex flex-col items-center gap-1.5 z-10">
-                    <div
-                      style={{ height: `${Math.min(88, 62 * conversionMultiplier)}%` }}
-                      className="w-full bg-amber-300 rounded-md transition-all duration-500 flex items-center justify-center shadow-xs"
-                    >
-                      <span className="text-[10px] font-bold text-amber-950">62%</span>
-                    </div>
-                  </div>
-                </div>
+            {/* Main Bar Chart Card */}
+            <motion.div 
+              style={{ y: y1 }}
+              initial={{ opacity: 0, scale: 0.8, rotateX: 20 }}
+              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+              transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[380px] bg-white rounded-3xl p-6 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-zinc-100 z-20"
+            >
+              <div className="absolute -top-4 -right-4 w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center shadow-lg border-4 border-white z-30">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
               </div>
-
-              {/* Card 2: Pie Chart Card (Screenshot 123913) */}
-              <div
-                onClick={() => setActiveMetricTab(prev => (prev + 1) % 3)}
-                className="w-[170px] bg-white rounded-3xl p-5 border border-zinc-100/80 card-elevated-shadow transition-all duration-300 hover:-translate-y-1 cursor-pointer select-none"
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-2.5 h-2.5 rounded-sm bg-blue-400" />
-                  <span className="text-xs font-medium text-zinc-500">65% Inbound</span>
-                </div>
-                
-                {/* SVG Donut / Pie */}
-                <div className="relative flex items-center justify-center py-2">
-                  <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 36 36">
-                    <path
-                      className="text-zinc-100"
-                      strokeWidth="6"
-                      stroke="currentColor"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                    <path
-                      className="text-blue-400"
-                      strokeDasharray="65, 100"
-                      strokeWidth="6"
-                      strokeLinecap="round"
-                      stroke="currentColor"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                    <span className="text-xs font-bold text-zinc-800">P1</span>
-                    <span className="text-[9px] text-zinc-400">Target</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 3: Processed Leads with Orange Circular Ring (Screenshot 123913 / 123924) */}
-              <div className="w-[190px] bg-white rounded-3xl p-5 border border-zinc-100/80 card-elevated-shadow transition-all duration-300 hover:-translate-y-1 cursor-pointer select-none">
-                <span className="text-xs font-semibold text-zinc-900 block mb-3">
-                  Processed<br />Leads
-                </span>
-                
-                <div className="relative flex items-center justify-center py-1">
-                  <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 36 36">
-                    <circle
-                      cx="18"
-                      cy="18"
-                      r="14"
-                      fill="none"
-                      stroke="#f3f4f6"
-                      strokeWidth="3.5"
-                    />
-                    <circle
-                      cx="18"
-                      cy="18"
-                      r="14"
-                      fill="none"
-                      stroke="#f97316"
-                      strokeWidth="3.5"
-                      strokeDasharray="88"
-                      strokeDashoffset="38"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-sm font-bold text-zinc-900 flex items-center">
-                      <span className="text-orange-500 mr-0.5">↑</span> 52%
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 4: Sales Cycle Length with Avatar (Screenshot 123913 / 123924) */}
-              <div className="w-[210px] bg-white rounded-3xl p-5 border border-zinc-100/80 card-elevated-shadow transition-all duration-300 hover:-translate-y-1 cursor-pointer select-none">
-                <span className="text-xs font-semibold text-zinc-900 block mb-3">
-                  Sales Cycle<br />Length
-                </span>
-
-                <div className="flex items-center gap-2.5 mb-3">
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80"
-                    alt="Daniel R."
-                    className="w-7 h-7 rounded-full object-cover"
-                    referrerPolicy="no-referrer"
+              <div className="flex items-end gap-3 h-40 pt-4">
+                {[45, 85, 60, 75, 30].map((height, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ height: 0 }}
+                    animate={{ height: `${height}%` }}
+                    transition={{ delay: 0.8 + (i * 0.1), duration: 0.8, type: "spring" }}
+                    className={`flex-1 rounded-t-xl ${i === 1 ? 'bg-emerald-500' : 'bg-emerald-300/60'}`}
                   />
-                  <div className="overflow-hidden">
-                    <p className="text-xs font-semibold text-zinc-900 truncate">Daniel R.</p>
-                    <p className="text-[10px] text-zinc-400 truncate">daniel@sixtech.ng</p>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Profile Card 1 */}
+            <motion.div 
+              style={{ y: y2 }}
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-[10%] sm:top-[15%] left-0 sm:left-[5%] w-[200px] bg-white rounded-2xl p-4 shadow-xl border border-zinc-100 z-30"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-orange-100 overflow-hidden shrink-0">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&auto=format&fit=crop" alt="Michael Gough" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-zinc-900">Michael Gough</h4>
+                  <div className="flex text-amber-400 mt-0.5 gap-0.5">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                   </div>
                 </div>
+                <div className="ml-auto w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                </div>
+              </div>
+            </motion.div>
 
-                <div className="space-y-1.5">
-                  <div className="flex justify-between items-center text-[10px]">
-                    <span className="text-zinc-500">Contract:</span>
-                    <span className="font-semibold text-zinc-800">₦450,000</span>
-                  </div>
-                  {/* Green Progress Bar */}
-                  <div className="w-full h-1.5 bg-zinc-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 rounded-full w-[82%]" />
+            {/* Profile Card 2 */}
+            <motion.div 
+              animate={{ y: [0, 20, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-[10%] sm:bottom-[20%] right-0 sm:right-[5%] w-[180px] bg-white rounded-2xl p-3 shadow-xl border border-zinc-100 z-30"
+            >
+              <div className="flex flex-col items-center text-center gap-2">
+                <div className="w-12 h-12 rounded-full bg-blue-100 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&auto=format&fit=crop" alt="Floyd Miles" className="w-full h-full object-cover" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-zinc-900">Floyd Miles</h4>
+                  <div className="flex justify-center text-amber-400 mt-1 gap-0.5">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                   </div>
                 </div>
               </div>
+            </motion.div>
 
-              {/* Card 5: Profitability Index (Screenshot 123913 / 123924) */}
-              <div className="w-[195px] bg-white rounded-3xl p-5 border border-zinc-100/80 card-elevated-shadow transition-all duration-300 hover:-translate-y-1 cursor-pointer select-none">
-                <span className="text-[11px] font-medium text-zinc-500 block">
-                  You gained
-                </span>
-                <p className="text-xl font-bold tracking-tight text-zinc-950 mt-1">
-                  ₦452,000
-                </p>
-                <span className="text-[11px] text-zinc-400 block mt-2">
-                  Profitability Index
-                </span>
-                <div className="mt-3 flex items-center gap-1.5 text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">
-                  <TrendingUp className="w-3 h-3" />
-                  <span>+18.4% this month</span>
-                </div>
+            {/* Checkmark Floating Element */}
+            <motion.div 
+              animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="absolute top-[40%] right-[-10%] sm:right-[0%] w-14 h-14 bg-white rounded-full shadow-xl border border-zinc-50 flex items-center justify-center z-10 hidden sm:flex"
+            >
+              <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center">
+                <CheckCircle2 className="w-6 h-6 text-white" />
               </div>
+            </motion.div>
 
-            </div>
+            {/* Growth Floating Element */}
+            <motion.div 
+              animate={{ y: [0, 15, 0], scale: [1, 1.05, 1] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              className="absolute bottom-[2%] left-[2%] bg-zinc-900 text-white px-4 py-2 rounded-xl shadow-xl z-20 font-semibold text-sm flex items-center gap-2"
+            >
+              <span>+380% Growth</span>
+              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            </motion.div>
+
           </div>
         </div>
-
       </div>
     </section>
   );

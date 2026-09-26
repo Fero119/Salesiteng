@@ -84,7 +84,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: '3',
     quote:
-      'Choosing SalesSite NG was one of the best decisions we made for our business. Zero initial capital, our site was live in 48 hours, and they handle all the technical headaches while we focus on clients.',
+      'Choosing SalesSite NG was one of the best decisions we made for our business. Just ₦30,000 upfront capital, our site was live in 48 hours, and they handle all the technical headaches while we focus on clients.',
     author: 'Ethan Roberts-Chukwu',
     role: 'Lead Consultant',
     company: 'Apex Logistics & Freight',
@@ -132,9 +132,9 @@ export const FAQ_ITEMS: FAQItem[] = [
   },
   {
     id: 'faq-5',
-    question: 'What does "Zero Upfront Cost" really mean? Are there hidden fees?',
+    question: 'Why is there a ₦30,000 upfront fee?',
     answer:
-      'No hidden fees whatsoever. Traditional agencies charge ₦300,000 to ₦1,000,000 before writing a single line of code. With SalesSite NG, we build and deploy your entire website for ₦0 upfront. You only begin your affordable monthly subscription (₦15,000/mo) once you review and approve your live site.'
+      'Traditional agencies charge ₦300,000 to ₦1,000,000 before writing a single line of code. With SalesSite NG, we build, design, and deploy your entire website for just a ₦30,000 upfront fee. You only begin your affordable monthly subscription (₦15,000/mo) once your site is fully operational.'
   },
   {
     id: 'faq-6',
