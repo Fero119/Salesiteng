@@ -79,14 +79,20 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
             return (
               <motion.div
                 key={plan.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`rounded-[36px] p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 relative ${
+                initial={{ opacity: 0, y: 60, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                whileHover={{ y: -12, scale: 1.02 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.15,
+                  type: "spring",
+                  bounce: 0.4
+                }}
+                className={`rounded-[36px] p-8 sm:p-10 flex flex-col justify-between transition-shadow duration-300 relative ${
                   isHighlighted
                     ? 'bg-[#18181b] text-white card-dark-shadow md:-translate-y-3 z-10 ring-2 ring-orange-500/30'
-                    : 'bg-white text-zinc-900 card-elevated-shadow border border-zinc-100 hover:-translate-y-2 hover:shadow-xl'
+                    : 'bg-white text-zinc-900 card-elevated-shadow border border-zinc-100 hover:shadow-2xl'
                 }`}
               >
                 {/* Card header */}
@@ -113,13 +119,19 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                   {/* Price display with orange accent on highlighted card */}
                   <div className="mt-8 pb-6 border-b border-zinc-200/40 dark:border-zinc-800">
                     <div className="flex items-baseline">
-                      <span
-                        className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${
-                          isHighlighted ? 'text-orange-500' : 'text-zinc-950'
-                        }`}
-                      >
-                        {formattedPrice}
-                      </span>
+                      {isHighlighted ? (
+                        <motion.span
+                          animate={{ filter: ["drop-shadow(0px 0px 4px rgba(249,115,22,0.3))", "drop-shadow(0px 0px 16px rgba(249,115,22,0.8))", "drop-shadow(0px 0px 4px rgba(249,115,22,0.3))"] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          className="text-4xl sm:text-5xl font-extrabold tracking-tight text-orange-500 inline-block"
+                        >
+                          {formattedPrice}
+                        </motion.span>
+                      ) : (
+                        <span className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-950">
+                          {formattedPrice}
+                        </span>
+                      )}
                       <span className={`text-xs ml-1 font-medium ${isHighlighted ? 'text-zinc-400' : 'text-zinc-500'}`}>
                         /month
                       </span>
