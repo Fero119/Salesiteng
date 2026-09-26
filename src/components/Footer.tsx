@@ -1,99 +1,135 @@
 import React from 'react';
 import { BrandLogo } from './BrandLogo';
-import { Instagram, Facebook, Twitter, ArrowUp } from 'lucide-react';
+import { Instagram, Facebook, Youtube, Linkedin } from 'lucide-react';
+import { motion } from 'motion/react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenLeadModal?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenLeadModal }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-[#18181b] text-white border-t border-zinc-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <footer className="bg-[#09090b] text-white pt-24 pb-12 overflow-hidden border-t border-zinc-900 relative">
+      {/* Subtle background glow to give it that premium dark aesthetic */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 flex flex-col items-center gap-12 sm:gap-16 relative z-10">
         
-        {/* Navigation & Brand row (Screenshot 124133) */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-10 border-b border-zinc-800">
-          {/* Brand */}
-          <div className="flex items-center">
+        {/* Top Row: Logo & Nav */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row items-center gap-4 w-full justify-center"
+        >
+          {/* Logo Pill */}
+          <div className="bg-zinc-900/60 backdrop-blur-xl border border-zinc-800 rounded-full px-6 py-3.5 shadow-lg flex items-center justify-center">
             <BrandLogo isDark={true} />
           </div>
 
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs sm:text-sm font-medium text-zinc-300">
-            <a href="#home" className="hover:text-white transition-colors">
-              Home
-            </a>
-            <a href="#about" className="hover:text-white transition-colors">
-              About us
-            </a>
-            <a href="#services" className="hover:text-white transition-colors">
-              Services
-            </a>
-            <a href="#how-it-works" className="hover:text-white transition-colors">
-              How it works
-            </a>
-            <a href="#pricing" className="hover:text-white transition-colors">
-              Pricing
-            </a>
-            <a href="#testimonials" className="hover:text-white transition-colors">
-              Case Studies
-            </a>
+          {/* Nav Pill */}
+          <nav className="bg-zinc-900/60 backdrop-blur-xl border border-zinc-800 rounded-full px-8 py-4 shadow-lg flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-sm font-medium text-zinc-300">
+            <a href="#how-it-works" className="hover:text-white transition-colors">How it works</a>
+            <a href="#services" className="hover:text-white transition-colors">Product</a>
+            <a href="#problem" className="hover:text-white transition-colors">Solutions</a>
+            <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
+            <a href="#testimonials" className="hover:text-white transition-colors">About</a>
           </nav>
+        </motion.div>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-3 text-zinc-300">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="SalesSite NG on Instagram"
-              className="w-9 h-9 rounded-full border border-zinc-700 flex items-center justify-center hover:border-orange-500 hover:text-orange-400 transition-all duration-200"
-            >
-              <Instagram className="w-4 h-4" />
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="SalesSite NG on Facebook"
-              className="w-9 h-9 rounded-full border border-zinc-700 flex items-center justify-center hover:border-orange-500 hover:text-orange-400 transition-all duration-200"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="SalesSite NG on X (formerly Twitter)"
-              className="w-9 h-9 rounded-full border border-zinc-700 flex items-center justify-center hover:border-orange-500 hover:text-orange-400 transition-all duration-200"
-            >
-              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-          </div>
-        </div>
+        {/* Middle Row: Giant CTA Pill */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 100 }}
+          className="w-full max-w-5xl"
+        >
+          <a 
+            href="#mockup"
+            onClick={(e) => {
+               e.preventDefault();
+               if (onOpenLeadModal) {
+                 onOpenLeadModal();
+               } else {
+                 scrollToTop();
+               }
+            }}
+            className="block w-full bg-[#121214] hover:bg-[#18181b] border border-zinc-800 hover:border-zinc-700 rounded-[40px] md:rounded-[70px] py-14 md:py-24 px-8 text-center transition-all duration-500 group relative overflow-hidden shadow-2xl cursor-pointer"
+          >
+            {/* Hover subtle glow inside the giant button */}
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
+            <div className="flex items-center justify-center gap-4 sm:gap-10 relative z-10">
+              {/* Left pulsing dot */}
+              <motion.div 
+                animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-orange-400 shadow-[0_0_20px_rgba(251,146,60,0.8)]"
+              />
+              
+              <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-[100px] font-bold tracking-tight text-white group-hover:scale-[1.02] transition-transform duration-500">
+                Get free mockup
+              </h2>
+              
+              {/* Right pulsing dot */}
+              <motion.div 
+                animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-amber-400 shadow-[0_0_20px_rgba(251,191,36,0.8)]"
+              />
+            </div>
+          </a>
+        </motion.div>
 
-        {/* Bottom copyright & location */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 gap-4">
-          <div className="flex flex-wrap items-center gap-3">
-            <span>© {new Date().getFullYear()} SalesSite NG Ltd. All rights reserved.</span>
-            <span>·</span>
-            <span>Victoria Island, Lagos, Nigeria</span>
-          </div>
-
+        {/* Bottom Row: Socials & Copyright */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-col items-center gap-10 w-full mt-4"
+        >
+          {/* Social Pills */}
           <div className="flex items-center gap-4">
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-zinc-400 hover:text-orange-400 transition-colors cursor-pointer px-3 py-1.5 rounded-full hover:bg-zinc-800"
-              aria-label="Scroll to top"
-            >
-              <span>Back to top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+            {[
+              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+              { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+              { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+            ].map((social, idx) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={idx}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-12 h-12 md:w-14 md:h-14 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-600 transition-all duration-300 hover:-translate-y-1 shadow-sm"
+                >
+                  <Icon className="w-5 h-5 md:w-6 md:h-6" />
+                </a>
+              );
+            })}
+          </div>
+
+          <div className="text-zinc-600 text-xs md:text-sm flex flex-wrap items-center justify-center gap-3 sm:gap-6">
+            <span>© {new Date().getFullYear()} SalesSite NG Ltd.</span>
+            <span className="hidden sm:inline">|</span>
+            <span>Victoria Island, Lagos</span>
+            <span className="hidden sm:inline">|</span>
+            <button onClick={scrollToTop} className="hover:text-white transition-colors uppercase tracking-wider text-[10px] md:text-xs font-bold">
+              Back to top
             </button>
           </div>
-        </div>
-
+        </motion.div>
+        
       </div>
     </footer>
   );

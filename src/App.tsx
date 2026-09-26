@@ -83,7 +83,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenLeadModal={() => handleOpenLeadModal('starter')} />
 
       {/* Floating WhatsApp Action Pill for Quick Inquiries */}
       <div className="fixed bottom-6 right-6 z-40">
