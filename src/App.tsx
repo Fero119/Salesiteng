@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { LeadMachineShowcase } from './components/LeadMachineShowcase';
+import { ProblemAgitation } from './components/ProblemAgitation';
 import { HowItWorks } from './components/HowItWorks';
 import { Testimonials } from './components/Testimonials';
 import { Pricing } from './components/Pricing';
@@ -49,21 +50,23 @@ export default function App() {
           onOpenMockupDemo={() => setMockupDemoOpen(true)}
         />
 
-        {/* Transform Leads into Revenue & Unlock the Value */}
+        {/* The Problem / Villain */}
+        <ProblemAgitation 
+          onOpenStrategyCall={() => setStrategyCallOpen(true)}
+        />
+
+        {/* The Guide's Value & Benefits */}
         <LeadMachineShowcase
           onOpenLeadModal={() => handleOpenLeadModal('starter')}
         />
 
-        {/* 3-Step Process & Agency vs WaaS comparison */}
-        <HowItWorks
-          onOpenLeadModal={() => handleOpenLeadModal('starter')}
-          onOpenStrategyCall={() => setStrategyCallOpen(true)}
-        />
-
-        {/* Testimonials */}
+        {/* The Guide's Authority */}
         <Testimonials
           onOpenLeadModal={() => handleOpenLeadModal('starter')}
         />
+
+        {/* The Plan */}
+        <HowItWorks />
 
         {/* Pricing Options */}
         <Pricing
