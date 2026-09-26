@@ -24,7 +24,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
     return () => observer.disconnect();
   }, []);
   return (
-    <section id="testimonials" className="py-24 bg-white relative overflow-hidden" ref={sectionRef}>
+    <section id="testimonials" className="py-24 bg-white/60 backdrop-blur-lg relative overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">

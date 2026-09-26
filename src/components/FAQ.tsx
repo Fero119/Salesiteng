@@ -27,7 +27,7 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white relative section-glow-top" ref={sectionRef}>
+    <section id="faq" className="py-24 bg-white/60 backdrop-blur-lg relative section-glow-top" ref={sectionRef}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Title */}

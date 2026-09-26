@@ -26,7 +26,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
   }, []);
 
   return (
-    <section id="services" className="py-24 bg-white relative" ref={sectionRef}>
+    <section id="services" className="py-24 bg-white/60 backdrop-blur-lg relative" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

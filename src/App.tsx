@@ -17,6 +17,7 @@ import { StartNowModal } from './components/StartNowModal';
 import { StrategyCallModal } from './components/StrategyCallModal';
 import { MockupPreviewModal } from './components/MockupPreviewModal';
 import { MessageCircle } from 'lucide-react';
+import KineticGrid from './components/ui/kinetic-grid';
 
 export default function App() {
   const [leadModalOpen, setLeadModalOpen] = useState(false);
@@ -32,7 +33,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-[#121212] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
+    <KineticGrid globalColor="default">
+      <div className="min-h-screen bg-transparent text-[#121212] flex flex-col font-sans selection:bg-orange-500 selection:text-white">
       {/* Top Navigation */}
       <Navbar
         onOpenLeadModal={() => handleOpenLeadModal('starter')}
@@ -118,6 +120,7 @@ export default function App() {
         onClose={() => setMockupDemoOpen(false)}
         onOpenStartNow={() => handleOpenLeadModal('starter')}
       />
-    </div>
+      </div>
+    </KineticGrid>
   );
 }

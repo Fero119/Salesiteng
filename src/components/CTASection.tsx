@@ -36,7 +36,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
   };
 
   return (
-    <section className="pt-20 pb-0 bg-white relative overflow-hidden" ref={sectionRef}>
+    <section className="pt-20 pb-0 bg-white/60 backdrop-blur-lg relative overflow-hidden" ref={sectionRef}>
       {/* 3D Spline Background - Lazy Loaded */}
       <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply pointer-events-none hidden md:block">
         <LazySpline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />

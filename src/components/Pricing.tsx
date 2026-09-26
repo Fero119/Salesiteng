@@ -28,7 +28,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
   }, []);
 
   return (
-    <section id="pricing" className="py-24 bg-[#fafafa] relative border-t border-zinc-100 section-glow-top overflow-hidden" ref={sectionRef}>
+    <section id="pricing" className="py-24 bg-white/60 backdrop-blur-lg relative border-t border-zinc-100 section-glow-top overflow-hidden" ref={sectionRef}>
       {/* 3D Spline Background - Lazy Loaded */}
       <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply pointer-events-none hidden md:block">
         <LazySpline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
