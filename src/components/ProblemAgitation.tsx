@@ -148,7 +148,7 @@ export const ProblemAgitation: React.FC<ProblemAgitationProps> = ({ onOpenStrate
               width={240}
               label={
                 <>
-                  <span>Book My Free Strategy Call</span>
+                  <span>Start on WhatsApp</span>
                   <ArrowRight className="w-4 h-4 text-orange-400" />
                 </>
               }

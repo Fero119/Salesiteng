@@ -94,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadModal, onOpenStrategyC
               width={190}
               label={
                 <>
-                  <span>Get My Free Mockup</span>
+                  <span>Start on WhatsApp</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </>
               }
@@ -152,7 +152,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadModal, onOpenStrategyC
                 }}
                 className="w-full justify-center"
                 width={300}
-                label="Get My Mockup"
+                label="Start on WhatsApp"
               />
             </div>
           </nav>

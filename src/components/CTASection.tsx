@@ -54,7 +54,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
             <LiquidMetalButton
               onClick={onOpenLeadModal}
               width={260}
-              label="Get My Free 48-Hour Mockup"
+              label="Start Scaling Now"
             />
             <p className="mt-4 text-xs font-medium text-zinc-500">
               ₦30,000 upfront setup · No credit card required to start
@@ -93,7 +93,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
                   <span className="text-sm font-medium">You're on the list! Welcome aboard.</span>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubscribe} className="relative flex items-center">
+                <form onSubmit={handleSubscribe} className="relative flex items-center w-full bg-[#27272a] rounded-full p-1.5 border border-zinc-700/50 focus-within:border-orange-500 focus-within:ring-1 focus-within:ring-orange-500 transition-all">
                   <label htmlFor="newsletter-email" className="sr-only">Email address</label>
                   <input
                     id="newsletter-email"
@@ -102,11 +102,11 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
-                    className="w-full bg-[#27272a] text-white placeholder-zinc-500 text-xs sm:text-sm px-6 py-4 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 pr-36"
+                    className="flex-1 bg-transparent text-white placeholder-zinc-500 text-xs sm:text-sm px-4 py-3 focus:outline-none"
                   />
                   <button
                     type="submit"
-                    className="absolute right-1.5 top-1/2 -translate-y-1/2 bg-orange-500 hover:bg-orange-400 text-white text-xs sm:text-sm font-semibold px-6 py-2.5 rounded-full transition-colors cursor-pointer btn-shine flex items-center justify-center"
+                    className="shrink-0 bg-orange-500 hover:bg-orange-400 text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-full transition-colors cursor-pointer btn-shine flex items-center justify-center"
                   >
                     Subscribe
                   </button>

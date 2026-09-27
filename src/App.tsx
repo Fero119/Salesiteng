@@ -14,23 +14,20 @@ import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
-import { StartNowModal } from './components/StartNowModal';
-import { StrategyCallModal } from './components/StrategyCallModal';
+
 import { MockupPreviewModal } from './components/MockupPreviewModal';
 import { MessageCircle } from 'lucide-react';
 import KineticGrid from './components/ui/kinetic-grid';
 
 export default function App() {
-  const [leadModalOpen, setLeadModalOpen] = useState(false);
-  const [selectedPlanForModal, setSelectedPlanForModal] = useState<string>('starter');
-  const [strategyCallOpen, setStrategyCallOpen] = useState(false);
-  const [mockupDemoOpen, setMockupDemoOpen] = useState(false);
+  const WHATSAPP_URL = "https://wa.me/2348121805800?text=" + encodeURIComponent("Hi SalesSite NG! 👋 I am interested in your services. What do I do next?");
 
   const handleOpenLeadModal = (planId?: string) => {
-    if (planId) {
-      setSelectedPlanForModal(planId);
-    }
-    setLeadModalOpen(true);
+    window.open(WHATSAPP_URL, "_blank");
+  };
+
+  const handleOpenStrategyCall = () => {
+    window.open(WHATSAPP_URL, "_blank");
   };
 
   return (
@@ -39,7 +36,7 @@ export default function App() {
       {/* Top Navigation */}
       <Navbar
         onOpenLeadModal={() => handleOpenLeadModal('starter')}
-        onOpenStrategyCall={() => setStrategyCallOpen(true)}
+        onOpenStrategyCall={() => handleOpenStrategyCall()}
       />
 
       {/* Main Content Sections */}
@@ -52,7 +49,7 @@ export default function App() {
 
         {/* The Problem / Villain */}
         <ProblemAgitation 
-          onOpenStrategyCall={() => setStrategyCallOpen(true)}
+          onOpenStrategyCall={() => handleOpenStrategyCall()}
         />
 
         {/* The Guide's Value & Benefits */}
@@ -88,7 +85,7 @@ export default function App() {
       {/* Floating WhatsApp Action Pill for Quick Inquiries */}
       <div className="fixed bottom-6 right-6 z-40">
         <a
-          href="https://wa.me/2348000000000?text=Hello%20SalesSite%20NG!%20I%20am%20interested%20in%20a%20high-converting%20website%20for%20my%20business."
+          href="https://wa.me/2348121805800?text=Hi%20SalesSite%20NG!%20%F0%9F%91%8B%20I%20am%20interested%20in%20your%20services.%20What%20do%20I%20do%20next%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 group"
@@ -104,18 +101,7 @@ export default function App() {
         </a>
       </div>
 
-      {/* Lead Capture / Free Mockup Modal */}
-      <StartNowModal
-        isOpen={leadModalOpen}
-        onClose={() => setLeadModalOpen(false)}
-        defaultPlan={selectedPlanForModal}
-      />
 
-      {/* 15-Minute Strategy Call Modal */}
-      <StrategyCallModal
-        isOpen={strategyCallOpen}
-        onClose={() => setStrategyCallOpen(false)}
-      />
 
       {/* Interactive Mobile/Desktop Store Demo Modal */}
       <MockupPreviewModal

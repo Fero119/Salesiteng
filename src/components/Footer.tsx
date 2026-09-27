@@ -73,8 +73,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadModal }) => {
                 className="w-4 h-4 md:w-6 md:h-6 rounded-full bg-orange-400 shadow-[0_0_20px_rgba(251,146,60,0.8)]"
               />
               
-              <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-[100px] font-bold tracking-tight text-white group-hover:scale-[1.02] transition-transform duration-500">
-                Get free mockup
+              <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-[100px] font-bold tracking-tight text-white group-hover:scale-[1.02] transition-transform duration-500 text-center leading-none px-4">
+                Start scaling <br className="md:hidden" /> now
               </h2>
               
               {/* Right pulsing dot */}
