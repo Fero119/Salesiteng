@@ -137,7 +137,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
                       </span>
                     </div>
                     <span className="text-[11px] text-zinc-400 mt-1 block">
-                      ₦30,000 / $50 setup fee · Cancel anytime
+                      ₦30,000 setup fee · Cancel anytime
                     </span>
                   </div>
 
