@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
           </span>
-          🎯 Our Mission: Equipping 1,000 Businesses with Premium Sites
+          🎯 #1 Affordable WhatsApp Website for Small Businesses in Nigeria
         </motion.div>
 
         {/* Title */}
