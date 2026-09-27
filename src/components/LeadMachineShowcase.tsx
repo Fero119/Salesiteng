@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, Check, MessageSquare, TrendingUp, Users, Zap } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Check, MessageSquare, TrendingUp, Users, Zap } from 'lucide-react';
 import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { motion } from 'motion/react';
 
@@ -8,7 +8,6 @@ interface LeadMachineShowcaseProps {
 }
 
 export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpenLeadModal }) => {
-  const [activeStep, setActiveStep] = useState<number>(0);
   const [costPerLeadToggle, setCostPerLeadToggle] = useState<number>(193);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -321,125 +320,107 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
             </div>
           </motion.div>
 
-          <div className="divide-y divide-zinc-200">
-            {/* Row 01 */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Card 01 */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              onClick={() => setActiveStep(0)}
-              className={`py-8 sm:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 cursor-pointer group transition-colors ${
-                activeStep === 0 ? 'opacity-100' : 'opacity-70 hover:opacity-100'
-              }`}
+              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-md transition-shadow flex flex-col"
             >
               <motion.div 
-                animate={activeStep === 0 ? { y: [0, -5, 0] } : {}}
+                animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="w-44 h-20 bg-[#f7f7f8] rounded-2xl flex flex-col justify-center p-3 border border-zinc-100/80 group-hover:shadow-md transition-shadow"
+                className="w-full h-28 bg-[#f7f7f8] rounded-xl flex flex-col justify-center p-4 border border-zinc-100/80 mb-6"
               >
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wide">Visits</span>
-                  <span className="text-[10px] font-bold text-zinc-900">8,450</span>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wide">Visits</span>
+                  <span className="text-xs font-bold text-zinc-900">8,450</span>
                 </div>
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wide">Chats</span>
-                  <span className="text-[10px] font-bold text-zinc-900">3,240</span>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wide">Chats</span>
+                  <span className="text-xs font-bold text-zinc-900">3,240</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wide">Orders</span>
-                  <span className="text-[10px] font-bold text-orange-600">920</span>
+                  <span className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wide">Orders</span>
+                  <span className="text-xs font-bold text-orange-600">920</span>
                 </div>
               </motion.div>
 
               <div className="flex-1">
-                <span className="text-sm font-mono text-zinc-400 block mb-1">01</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 group-hover:text-orange-600 transition-colors">
+                <span className="text-xs font-mono text-orange-500 font-bold tracking-wider uppercase mb-2 block">01</span>
+                <h3 className="text-xl font-bold text-zinc-900 mb-2">
                   Leads Segmentation
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-500 mt-1 max-w-xl">
+                <p className="text-sm text-zinc-500 leading-relaxed">
                   Categorize inquiries by high-ticket orders, wholesale buyers, or retail shoppers so your sales team talks to ready spenders first.
                 </p>
               </div>
-              <div className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center group-hover:border-zinc-900 transition-colors">
-                <ArrowUpRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" />
-              </div>
             </motion.div>
 
-            {/* Row 02 */}
+            {/* Card 02 */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              onClick={() => setActiveStep(1)}
-              className={`py-8 sm:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 cursor-pointer group transition-colors ${
-                activeStep === 1 ? 'opacity-100' : 'opacity-70 hover:opacity-100'
-              }`}
+              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-md transition-shadow flex flex-col"
             >
               <motion.div 
-                animate={activeStep === 1 ? { y: [0, -5, 0] } : {}}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="w-44 h-20 bg-[#f7f7f8] rounded-2xl flex flex-col justify-center p-3 border border-zinc-100/80 group-hover:shadow-md transition-shadow"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="w-full h-28 bg-[#f7f7f8] rounded-xl flex flex-col justify-center p-4 border border-zinc-100/80 mb-6 relative overflow-hidden"
               >
-                <div className="flex items-center justify-between text-[9px] text-zinc-400 mb-1">
+                <div className="flex items-center justify-between text-[10px] text-zinc-400 mb-2">
                   <span>New Order #1042</span>
-                  <span className="text-orange-600 font-bold bg-orange-50 px-1 rounded">Just now</span>
+                  <span className="text-orange-600 font-bold bg-orange-50 px-1.5 py-0.5 rounded">Just now</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                  <span className="text-[11px] font-semibold text-zinc-800">WhatsApp Alert</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse" />
+                  <span className="text-xs font-semibold text-zinc-800">WhatsApp Alert</span>
                 </div>
               </motion.div>
 
               <div className="flex-1">
-                <span className="text-sm font-mono text-zinc-400 block mb-1">02</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 group-hover:text-orange-600 transition-colors">
+                <span className="text-xs font-mono text-orange-500 font-bold tracking-wider uppercase mb-2 block">02</span>
+                <h3 className="text-xl font-bold text-zinc-900 mb-2">
                   Real-Time Analytics
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-500 mt-1 max-w-xl">
+                <p className="text-sm text-zinc-500 leading-relaxed">
                   Instant WhatsApp notification the moment a customer fills a cart or inquires about a service, with zero delay.
                 </p>
               </div>
-              <div className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center group-hover:border-zinc-900 transition-colors">
-                <ArrowUpRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" />
-              </div>
             </motion.div>
 
-            {/* Row 03 */}
+            {/* Card 03 */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              onClick={() => setActiveStep(2)}
-              className={`py-8 sm:py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 cursor-pointer group transition-colors ${
-                activeStep === 2 ? 'opacity-100' : 'opacity-70 hover:opacity-100'
-              }`}
+              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-md transition-shadow flex flex-col"
             >
               <motion.div 
-                animate={activeStep === 2 ? { y: [0, -5, 0] } : {}}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="w-44 h-20 bg-[#f7f7f8] rounded-2xl flex flex-col justify-center p-3 border border-zinc-100/80 group-hover:shadow-md transition-shadow"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="w-full h-28 bg-[#f7f7f8] rounded-xl flex flex-col justify-center p-4 border border-zinc-100/80 mb-6"
               >
-                <span className="text-[9px] text-zinc-400 block">Meetings</span>
-                <span className="text-[11px] font-bold text-zinc-800 mt-0.5">11:00 am WAT</span>
-                <div className="flex items-center gap-1 mt-1">
-                  <div className="w-3.5 h-3.5 rounded-full bg-orange-400 flex items-center justify-center text-[7px] text-white">✓</div>
-                  <span className="text-[9px] text-zinc-500">Client Call</span>
+                <span className="text-[10px] text-zinc-400 block mb-1">Meetings</span>
+                <span className="text-sm font-bold text-zinc-800">11:00 am WAT</span>
+                <div className="flex items-center gap-1.5 mt-2">
+                  <div className="w-4 h-4 rounded-full bg-orange-400 flex items-center justify-center text-[9px] text-white">✓</div>
+                  <span className="text-[10px] text-zinc-500">Client Call</span>
                 </div>
               </motion.div>
 
               <div className="flex-1">
-                <span className="text-sm font-mono text-zinc-400 block mb-1">03</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 group-hover:text-orange-600 transition-colors">
+                <span className="text-xs font-mono text-orange-500 font-bold tracking-wider uppercase mb-2 block">03</span>
+                <h3 className="text-xl font-bold text-zinc-900 mb-2">
                   Strategy Call Scheduler
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-500 mt-1 max-w-xl">
+                <p className="text-sm text-zinc-500 leading-relaxed">
                   Let your high-ticket clients book direct 1-on-1 strategy sessions or consultation appointments automatically.
                 </p>
-              </div>
-              <div className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center group-hover:border-zinc-900 transition-colors">
-                <ArrowUpRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-900" />
               </div>
             </motion.div>
           </div>
