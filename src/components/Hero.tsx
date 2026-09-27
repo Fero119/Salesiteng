@@ -119,10 +119,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-orange-100 overflow-hidden shrink-0">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&auto=format&fit=crop" alt="Michael Gough" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&auto=format&fit=crop" alt="Chinedu O." className="w-full h-full object-cover" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-zinc-900">Michael</h4>
+                <h4 className="text-sm font-bold text-zinc-900">Chinedu O.</h4>
                 <div className="flex text-amber-400 mt-0.5 gap-0.5">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                 </div>
@@ -141,10 +141,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           >
             <div className="flex flex-col items-center text-center gap-2">
               <div className="w-12 h-12 rounded-full bg-orange-100 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&auto=format&fit=crop" alt="Floyd Miles" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&auto=format&fit=crop" alt="Aisha Bello" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-zinc-900">Floyd Miles</h4>
+                <h4 className="text-sm font-bold text-zinc-900">Aisha Bello</h4>
                 <div className="flex justify-center text-amber-400 mt-1 gap-0.5">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                 </div>
@@ -169,7 +169,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
             className="absolute bottom-[2%] left-[2%] bg-zinc-900 text-white px-4 py-2 rounded-xl shadow-xl z-20 font-semibold text-sm flex items-center gap-2"
           >
-            <span>+380% Growth</span>
+            <span>50+ Stores Launched</span>
             <div className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
           </motion.div>
 

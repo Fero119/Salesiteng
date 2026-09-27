@@ -57,8 +57,23 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
               label="Start Scaling Now"
             />
             <p className="mt-4 text-xs font-medium text-zinc-500">
-              ₦30,000 upfront setup · No credit card required to start
+              ₦30,000 upfront setup · Cancel anytime
             </p>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-8 max-w-lg w-full bg-white/60 backdrop-blur-md border border-zinc-200/80 rounded-2xl p-5 text-left shadow-sm"
+            >
+              <h4 className="text-sm font-bold text-zinc-900 flex items-center gap-2 mb-2">
+                <span className="w-5 h-5 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-xs">?</span>
+                Why the ₦30,000 setup fee?
+              </h4>
+              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                We don't just hand you a DIY template. Our team manually builds, designs, and wires your custom store to your WhatsApp line. The ₦30,000 covers the actual human labor to set up your 24/7 sales machine perfectly before your subscription even begins.
+              </p>
+            </motion.div>
           </div>
         </motion.div>
 

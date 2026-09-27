@@ -335,13 +335,19 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
               <motion.div 
                 animate={activeStep === 0 ? { y: [0, -5, 0] } : {}}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="w-44 h-20 bg-[#f7f7f8] rounded-2xl flex items-center justify-center p-3 border border-zinc-100/80 group-hover:shadow-md transition-shadow"
+                className="w-44 h-20 bg-[#f7f7f8] rounded-2xl flex flex-col justify-center p-3 border border-zinc-100/80 group-hover:shadow-md transition-shadow"
               >
-                <div className="flex items-center -space-x-3">
-                  <div className="w-12 h-12 rounded-full bg-amber-300 flex items-center justify-center text-[10px] font-bold text-amber-900 border-2 border-white shadow-xs">84%</div>
-                  <div className="w-10 h-10 rounded-full bg-orange-300 flex items-center justify-center text-[9px] font-bold text-orange-900 border-2 border-white shadow-xs">44%</div>
-                  <div className="w-9 h-9 rounded-full bg-zinc-200 flex items-center justify-center text-[8px] font-bold text-zinc-950 border-2 border-white shadow-xs">32%</div>
-                  <div className="w-7 h-7 rounded-full bg-orange-400 flex items-center justify-center text-[7px] font-bold text-orange-950 border-2 border-white shadow-xs">21%</div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wide">Visits</span>
+                  <span className="text-[10px] font-bold text-zinc-900">8,450</span>
+                </div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wide">Chats</span>
+                  <span className="text-[10px] font-bold text-zinc-900">3,240</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-[9px] text-zinc-500 font-semibold uppercase tracking-wide">Orders</span>
+                  <span className="text-[10px] font-bold text-orange-600">920</span>
                 </div>
               </motion.div>
 
@@ -376,12 +382,12 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 className="w-44 h-20 bg-[#f7f7f8] rounded-2xl flex flex-col justify-center p-3 border border-zinc-100/80 group-hover:shadow-md transition-shadow"
               >
                 <div className="flex items-center justify-between text-[9px] text-zinc-400 mb-1">
-                  <span>Redo Logistic</span>
-                  <span className="text-orange-600 font-bold bg-orange-50 px-1 rounded">+19.8%</span>
+                  <span>New Order #1042</span>
+                  <span className="text-orange-600 font-bold bg-orange-50 px-1 rounded">Just now</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-zinc-700" />
-                  <span className="text-[11px] font-semibold text-zinc-800">Shipment Live</span>
+                  <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                  <span className="text-[11px] font-semibold text-zinc-800">WhatsApp Alert</span>
                 </div>
               </motion.div>
 
