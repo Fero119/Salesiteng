@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { LeadMachineShowcase } from './components/LeadMachineShowcase';
@@ -19,9 +19,19 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { MockupPreviewModal } from './components/MockupPreviewModal';
 import { MessageCircle } from 'lucide-react';
 import KineticGrid from './components/ui/kinetic-grid';
+import { TermsOfService } from './components/TermsOfService';
+import { CancellationPolicy } from './components/CancellationPolicy';
 
 export default function App() {
   const [mockupDemoOpen, setMockupDemoOpen] = useState(false);
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+  
+  useEffect(() => {
+    const onHashChange = () => setCurrentHash(window.location.hash);
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
   const WHATSAPP_URL = "https://wa.me/2348121805800?text=" + encodeURIComponent("Hi SalesSite NG! 👋 I am interested in your services. What do I do next?");
 
   const handleOpenLeadModal = (planId?: string) => {
@@ -31,6 +41,14 @@ export default function App() {
   const handleOpenStrategyCall = () => {
     window.open(WHATSAPP_URL, "_blank");
   };
+
+  if (currentHash === '#terms') {
+    return <TermsOfService />;
+  }
+  
+  if (currentHash === '#cancellation') {
+    return <CancellationPolicy />;
+  }
 
   return (
     <KineticGrid globalColor="default">

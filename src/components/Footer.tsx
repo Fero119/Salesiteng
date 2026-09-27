@@ -139,8 +139,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadModal }) => {
           <div className="text-zinc-600 text-xs md:text-sm flex flex-wrap items-center justify-center gap-3 sm:gap-6">
             <span>© {new Date().getFullYear()} SalesSite NG Ltd.</span>
             <span className="hidden sm:inline">|</span>
-            <span>Victoria Island, Lagos</span>
-            <span className="hidden sm:inline">|</span>
             <button onClick={scrollToTop} className="hover:text-white transition-colors uppercase tracking-wider text-[10px] md:text-xs font-bold">
               Back to top
             </button>
