@@ -20,6 +20,7 @@ import { MessageCircle } from 'lucide-react';
 import KineticGrid from './components/ui/kinetic-grid';
 
 export default function App() {
+  const [mockupDemoOpen, setMockupDemoOpen] = useState(false);
   const WHATSAPP_URL = "https://wa.me/2348121805800?text=" + encodeURIComponent("Hi SalesSite NG! 👋 I am interested in your services. What do I do next?");
 
   const handleOpenLeadModal = (planId?: string) => {
