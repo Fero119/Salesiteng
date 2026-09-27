@@ -209,7 +209,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-5 rounded-[24px] overflow-hidden relative min-h-[240px] shadow-sm bg-gradient-to-br from-zinc-800 to-zinc-950 group"
+            className="md:col-span-5 rounded-[20px] overflow-hidden relative min-h-[160px] shadow-sm bg-gradient-to-br from-zinc-800 to-zinc-950 group flex flex-col justify-end"
           >
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80"
@@ -218,14 +218,14 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
               referrerPolicy="no-referrer"
             />
             {/* Measured contrast scrim */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6">
-              <span className="text-[10px] uppercase tracking-wider font-semibold text-orange-400">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-5">
+              <span className="text-[9px] uppercase tracking-wider font-semibold text-orange-400">
                 Lagos Support Desk
               </span>
-              <p className="text-white text-base font-bold mt-0.5">
+              <p className="text-white text-sm font-bold mt-0.5">
                 Dedicated WhatsApp Concierge
               </p>
-              <p className="text-zinc-300 text-[11px] mt-1 max-w-[90%]">
+              <p className="text-zinc-300 text-[10px] mt-1 max-w-[95%] leading-tight">
                 Real humans in Nigeria helping you update your catalogue, adjust prices, and run promos anytime.
               </p>
             </div>
@@ -237,25 +237,25 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-7 bg-[#f7f7f8] rounded-[24px] p-6 flex flex-col justify-between border border-zinc-100 hover:shadow-xl transition-all duration-300"
+            className="md:col-span-7 bg-[#f7f7f8] rounded-[20px] p-5 flex flex-col justify-between border border-zinc-100 hover:shadow-xl transition-all duration-300"
           >
             <div>
-              <h3 className="text-lg font-bold text-zinc-900">
+              <h3 className="text-base font-bold text-zinc-900">
                 Segmentation
               </h3>
-              <p className="mt-1.5 text-xs text-zinc-500 leading-relaxed max-w-lg">
+              <p className="mt-1 text-[11px] text-zinc-500 leading-relaxed max-w-lg">
                 Effortlessly segment leads based on customizable criteria for targeted engagement and enhanced conversion rates.
               </p>
             </div>
 
-            <div className="mt-5 space-y-3 relative">
+            <div className="mt-4 flex flex-col sm:flex-row gap-3 relative">
               {/* 47% Leads Retention progress bar */}
               <motion.div 
-                animate={{ y: [0, -5, 0] }}
+                animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="bg-white rounded-2xl p-4 border border-zinc-100 shadow-sm relative z-10"
+                className="bg-white rounded-xl p-3 border border-zinc-100 shadow-sm relative z-10 flex-1 flex flex-col justify-center"
               >
-                <div className="w-full h-2 bg-zinc-100 rounded-full overflow-hidden mb-2.5">
+                <div className="w-full h-1.5 bg-zinc-100 rounded-full overflow-hidden mb-2">
                   <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: '47%' }}
@@ -264,27 +264,27 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                     className="h-full bg-gradient-to-r from-orange-500 to-amber-400 rounded-full" 
                   />
                 </div>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-xl font-bold text-zinc-900">47%</span>
-                  <span className="text-[11px] text-zinc-400 font-medium">Leads Retention</span>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-lg font-bold text-zinc-900">47%</span>
+                  <span className="text-[10px] text-zinc-400 font-medium">Leads Retention</span>
                 </div>
               </motion.div>
 
               {/* Floating New Leads badge */}
               <motion.div 
-                animate={{ y: [0, 6, 0] }}
+                animate={{ y: [0, 4, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="bg-white rounded-2xl p-3 border border-zinc-100 shadow-sm flex items-center justify-between relative z-10"
+                className="bg-white rounded-xl p-3 border border-zinc-100 shadow-sm flex items-center justify-between relative z-10 flex-1"
               >
                 <div>
-                  <span className="text-[10px] text-zinc-400 font-medium">New Leads This Week</span>
-                  <p className="text-lg font-bold text-zinc-900 leading-none mt-0.5">342</p>
+                  <span className="text-[9px] text-zinc-400 font-medium">New Leads</span>
+                  <p className="text-base font-bold text-zinc-900 leading-none mt-1">342</p>
                 </div>
                 {/* 3-color progress bars */}
-                <div className="flex items-center gap-1 w-20 justify-end">
-                  <motion.div animate={{ height: [6, 12, 6] }} transition={{ duration: 2, repeat: Infinity }} className="w-1.5 bg-orange-500 rounded-full" />
-                  <motion.div animate={{ height: [10, 16, 10] }} transition={{ duration: 2.2, repeat: Infinity }} className="w-1.5 bg-amber-400 rounded-full" />
-                  <motion.div animate={{ height: [8, 14, 8] }} transition={{ duration: 1.8, repeat: Infinity }} className="w-1.5 bg-emerald-500 rounded-full" />
+                <div className="flex items-end gap-1 w-12 justify-end">
+                  <motion.div animate={{ height: [4, 10, 4] }} transition={{ duration: 2, repeat: Infinity }} className="w-1.5 bg-orange-500 rounded-full" />
+                  <motion.div animate={{ height: [8, 14, 8] }} transition={{ duration: 2.2, repeat: Infinity }} className="w-1.5 bg-amber-400 rounded-full" />
+                  <motion.div animate={{ height: [6, 12, 6] }} transition={{ duration: 1.8, repeat: Infinity }} className="w-1.5 bg-emerald-500 rounded-full" />
                 </div>
               </motion.div>
             </div>
@@ -292,7 +292,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
             <div className="mt-4 flex justify-start">
               <LiquidMetalButton
                 onClick={onOpenLeadModal}
-                width={110}
+                width={100}
                 label="Learn more"
               />
             </div>
