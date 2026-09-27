@@ -194,7 +194,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
         >
           <p className="text-xs sm:text-sm font-medium text-zinc-600 bg-white inline-block px-6 py-3 rounded-full shadow-sm border border-zinc-200/60">
             <span className="text-orange-500 font-bold mr-1">🔒 Guarantee:</span> 
-            You only pay the ₦30,000 once you've seen and approved your mockup — not before.
+            Not happy with the final build? Full refund within 7 days.
           </p>
         </motion.div>
 

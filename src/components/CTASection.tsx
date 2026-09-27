@@ -53,8 +53,8 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
           <div className="mt-10 flex flex-col items-center justify-center">
             <LiquidMetalButton
               onClick={onOpenLeadModal}
-              width={260}
-              label="Start Scaling Now"
+              width={300}
+              label="Book My Free Strategy Call"
             />
             <p className="mt-4 text-xs font-medium text-zinc-500">
               ₦30,000 upfront setup · Cancel anytime

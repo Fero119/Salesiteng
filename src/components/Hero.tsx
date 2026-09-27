@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-20"
         >
           <LiquidMetalButton
-            label="Get My Free Mockup on WhatsApp"
+            label="Book My Free Strategy Call"
             onClick={onOpenLeadModal}
             width={300}
           />

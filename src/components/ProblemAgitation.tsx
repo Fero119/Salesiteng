@@ -52,7 +52,7 @@ export const ProblemAgitation: React.FC<ProblemAgitationProps> = ({ onOpenStrate
 
               <ul className="space-y-5 text-sm text-zinc-500">
                 {[
-                  "₦300,000+ upfront fee before seeing a mockup.",
+                  "₦300,000+ upfront fee with zero guarantees.",
                   "Takes 6 to 12 weeks of delayed deadlines.",
                   "No WhatsApp integration — 80% cart abandonment.",
                   "Designer disappears after launch."
@@ -108,7 +108,7 @@ export const ProblemAgitation: React.FC<ProblemAgitationProps> = ({ onOpenStrate
 
               <ul className="space-y-5 text-sm text-zinc-300">
                 {[
-                  "₦30,000 upfront design fee. We build the mockup first.",
+                  "₦30,000 upfront setup fee. Full refund within 7 days if unhappy.",
                   "Live in 48 hours. Ready for orders immediately.",
                   "Direct 1-Tap WhatsApp Checkout tailored for Nigeria.",
                   "₦15,000/mo includes hosting, SSL, and updates."

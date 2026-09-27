@@ -35,10 +35,10 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
             <div className="mt-8">
               <LiquidMetalButton
                 onClick={onOpenLeadModal}
-                width={200}
+                width={260}
                 label={
                   <>
-                    <span>Get My Free Mockup</span>
+                    <span>Book My Free Strategy Call</span>
                     <ArrowUpRight className="w-4 h-4 text-zinc-400" />
                   </>
                 }

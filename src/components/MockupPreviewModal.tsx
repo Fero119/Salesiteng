@@ -242,9 +242,9 @@ export const MockupPreviewModal: React.FC<MockupPreviewModalProps> = ({
               onClose();
               onOpenStartNow();
             }}
-            className="w-full sm:w-auto px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm"
+            className="w-full sm:w-auto px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm whitespace-nowrap"
           >
-            Claim Your Custom Mockup (₦30,000 Upfront)
+            Book My Free Strategy Call
           </button>
         </div>
 
