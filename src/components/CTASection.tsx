@@ -87,13 +87,13 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-zinc-900 border border-emerald-500/40 text-emerald-400 px-6 py-4 rounded-full flex items-center gap-3"
+                  className="bg-zinc-900 border border-orange-500/40 text-orange-400 px-6 py-4 rounded-full flex items-center gap-3"
                 >
                   <CheckCircle2 className="w-5 h-5" />
                   <span className="text-sm font-medium">You're on the list! Welcome aboard.</span>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubscribe} className="relative flex items-center w-full bg-[#27272a] rounded-full p-1.5 border border-zinc-700/50 focus-within:border-orange-500 focus-within:ring-1 focus-within:ring-orange-500 transition-all">
+                <form onSubmit={handleSubscribe} className="relative w-full">
                   <label htmlFor="newsletter-email" className="sr-only">Email address</label>
                   <input
                     id="newsletter-email"
@@ -102,14 +102,16 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email address"
-                    className="flex-1 bg-transparent text-white placeholder-zinc-500 text-xs sm:text-sm px-4 py-3 focus:outline-none"
+                    className="w-full bg-[#27272a] text-white placeholder-zinc-500 text-xs sm:text-sm pl-6 pr-[120px] py-4 rounded-full border border-zinc-700/50 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
                   />
-                  <button
-                    type="submit"
-                    className="shrink-0 bg-orange-500 hover:bg-orange-400 text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-full transition-colors cursor-pointer btn-shine flex items-center justify-center"
-                  >
-                    Subscribe
-                  </button>
+                  <div className="absolute right-1.5 top-1.5 bottom-1.5">
+                    <button
+                      type="submit"
+                      className="h-full bg-orange-500 hover:bg-orange-400 text-white text-xs sm:text-sm font-semibold px-6 rounded-full transition-colors cursor-pointer btn-shine flex items-center justify-center"
+                    >
+                      Subscribe
+                    </button>
+                  </div>
                 </form>
               )}
             </div>

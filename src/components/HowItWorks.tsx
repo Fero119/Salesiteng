@@ -7,10 +7,10 @@ export const HowItWorks: React.FC = () => {
 
   const colors = {
     blue: {
-      dot: 'bg-blue-500',
-      text: 'text-blue-500',
-      bgHover: 'group-hover:bg-blue-50',
-      iconBg: 'bg-blue-100/50'
+      dot: 'bg-zinc-500',
+      text: 'text-zinc-500',
+      bgHover: 'group-hover:bg-zinc-50',
+      iconBg: 'bg-zinc-100/50'
     },
     orange: {
       dot: 'bg-orange-500',
@@ -65,7 +65,7 @@ export const HowItWorks: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-10 relative z-20"
         >
-          <span className="text-xs uppercase tracking-widest font-semibold text-blue-600 block mb-2">
+          <span className="text-xs uppercase tracking-widest font-semibold text-orange-600 block mb-2">
             The Plan
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950">
@@ -76,7 +76,7 @@ export const HowItWorks: React.FC = () => {
           </p>
           
           <div className="mt-10 flex justify-center">
-            <div className="bg-[#1a56ff] text-white px-8 py-3 rounded-2xl font-semibold text-sm shadow-lg shadow-blue-500/30 ring-1 ring-blue-600 relative z-20">
+            <div className="bg-zinc-900 text-white px-8 py-3 rounded-2xl font-semibold text-sm shadow-lg shadow-zinc-900/30 ring-1 ring-zinc-800 relative z-20">
               SalesSite NG Workflow
             </div>
           </div>

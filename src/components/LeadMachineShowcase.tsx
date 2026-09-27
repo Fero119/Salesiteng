@@ -65,7 +65,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                     <path d="M1 12 C 6 2, 12 14, 23 2" />
                   </svg>
                 </div>
-                <span className="text-[11px] font-semibold text-emerald-600">-38%</span>
+                <span className="text-[11px] font-semibold text-orange-600">-38%</span>
               </motion.div>
 
               {/* Green Icon Note */}
@@ -74,7 +74,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
                 className="absolute bottom-2 right-12 bg-white px-3.5 py-2.5 rounded-2xl shadow-sm border border-zinc-100/60 flex items-center gap-2"
               >
-                <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-white">
+                <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white">
                   <MessageSquare className="w-3.5 h-3.5" />
                 </div>
                 <div className="text-left">
@@ -129,8 +129,8 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                       transition={{ delay: 0.3 + (i * 0.1), duration: 0.8, type: "spring" }}
                       className={`w-full rounded-t-lg transition-all duration-500 ${
                         i === 1
-                          ? 'bg-emerald-500 shadow-xs'
-                          : 'bg-emerald-300/70 border-t border-emerald-400'
+                          ? 'bg-orange-500 shadow-xs'
+                          : 'bg-orange-300/70 border-t border-orange-400'
                       }`}
                     />
                   </div>
@@ -143,7 +143,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center shadow-md z-10"
               >
-                <Check className="w-4 h-4 text-emerald-400 stroke-[3]" />
+                <Check className="w-4 h-4 text-orange-400 stroke-[3]" />
               </motion.div>
             </div>
           </motion.div>
@@ -190,7 +190,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 <motion.div 
                   animate={{ x: [0, -5, 0] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-xs"
+                  className="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center shadow-xs"
                 >
                   <MessageSquare className="w-4 h-4" />
                 </motion.div>
@@ -284,7 +284,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 <div className="flex items-end gap-1 w-12 justify-end">
                   <motion.div animate={{ height: [4, 10, 4] }} transition={{ duration: 2, repeat: Infinity }} className="w-1.5 bg-orange-500 rounded-full" />
                   <motion.div animate={{ height: [8, 14, 8] }} transition={{ duration: 2.2, repeat: Infinity }} className="w-1.5 bg-amber-400 rounded-full" />
-                  <motion.div animate={{ height: [6, 12, 6] }} transition={{ duration: 1.8, repeat: Infinity }} className="w-1.5 bg-emerald-500 rounded-full" />
+                  <motion.div animate={{ height: [6, 12, 6] }} transition={{ duration: 1.8, repeat: Infinity }} className="w-1.5 bg-zinc-700 rounded-full" />
                 </div>
               </motion.div>
             </div>
@@ -339,8 +339,8 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
               >
                 <div className="flex items-center -space-x-3">
                   <div className="w-12 h-12 rounded-full bg-amber-300 flex items-center justify-center text-[10px] font-bold text-amber-900 border-2 border-white shadow-xs">84%</div>
-                  <div className="w-10 h-10 rounded-full bg-blue-300 flex items-center justify-center text-[9px] font-bold text-blue-900 border-2 border-white shadow-xs">44%</div>
-                  <div className="w-9 h-9 rounded-full bg-emerald-400 flex items-center justify-center text-[8px] font-bold text-emerald-950 border-2 border-white shadow-xs">32%</div>
+                  <div className="w-10 h-10 rounded-full bg-orange-300 flex items-center justify-center text-[9px] font-bold text-orange-900 border-2 border-white shadow-xs">44%</div>
+                  <div className="w-9 h-9 rounded-full bg-zinc-200 flex items-center justify-center text-[8px] font-bold text-zinc-950 border-2 border-white shadow-xs">32%</div>
                   <div className="w-7 h-7 rounded-full bg-orange-400 flex items-center justify-center text-[7px] font-bold text-orange-950 border-2 border-white shadow-xs">21%</div>
                 </div>
               </motion.div>
@@ -377,10 +377,10 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
               >
                 <div className="flex items-center justify-between text-[9px] text-zinc-400 mb-1">
                   <span>Redo Logistic</span>
-                  <span className="text-emerald-600 font-bold bg-emerald-50 px-1 rounded">+19.8%</span>
+                  <span className="text-orange-600 font-bold bg-orange-50 px-1 rounded">+19.8%</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-blue-500" />
+                  <div className="w-2 h-2 rounded-full bg-zinc-700" />
                   <span className="text-[11px] font-semibold text-zinc-800">Shipment Live</span>
                 </div>
               </motion.div>

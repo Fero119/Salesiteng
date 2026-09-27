@@ -120,7 +120,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
                   <motion.span 
                     animate={{ y: [0, -3, 0] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.3 }}
-                    className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-md"
+                    className="text-[10px] font-semibold text-orange-700 bg-orange-50 px-2 py-1 rounded-md"
                   >
                     {t.metric}
                   </motion.span>

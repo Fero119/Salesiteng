@@ -60,7 +60,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
 
             {/* Annual discount tag */}
             <div className="inline-flex items-center gap-2 text-xs font-medium text-zinc-600 bg-white px-3.5 py-1.5 rounded-full border border-zinc-200/80 shadow-xs">
-              <span className="text-emerald-600 font-bold">2 Months Free</span>
+              <span className="text-orange-600 font-bold">2 Months Free</span>
               <span>with annual billing</span>
             </div>
           </div>

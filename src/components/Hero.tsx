@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-amber-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <div className="w-3 h-3 rounded-full bg-zinc-400" />
               </div>
               <div className="h-4 w-32 bg-zinc-100 rounded-full" />
             </div>
@@ -127,8 +127,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                 </div>
               </div>
-              <div className="ml-auto w-5 h-5 bg-emerald-100 rounded-full flex items-center justify-center shrink-0">
-                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+              <div className="ml-auto w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
+                <CheckCircle2 className="w-3 h-3 text-orange-600" />
               </div>
             </div>
           </motion.div>
@@ -140,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
             className="absolute bottom-20 -right-4 md:-right-12 w-[160px] bg-white rounded-2xl p-3 shadow-xl border border-zinc-100 z-30"
           >
             <div className="flex flex-col items-center text-center gap-2">
-              <div className="w-12 h-12 rounded-full bg-blue-100 overflow-hidden">
+              <div className="w-12 h-12 rounded-full bg-orange-100 overflow-hidden">
                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&auto=format&fit=crop" alt="Floyd Miles" className="w-full h-full object-cover" />
               </div>
               <div>
@@ -158,7 +158,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
             className="absolute top-1/4 -right-2 md:right-8 w-14 h-14 bg-white rounded-full shadow-xl border border-zinc-50 flex items-center justify-center z-10"
           >
-            <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
               <CheckCircle2 className="w-6 h-6 text-white" />
             </div>
           </motion.div>
@@ -170,7 +170,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
             className="absolute bottom-[2%] left-[2%] bg-zinc-900 text-white px-4 py-2 rounded-xl shadow-xl z-20 font-semibold text-sm flex items-center gap-2"
           >
             <span>+380% Growth</span>
-            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
           </motion.div>
 
         </motion.div>

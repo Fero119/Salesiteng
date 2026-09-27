@@ -93,7 +93,7 @@ export default function App() {
         >
           <div className="relative">
             <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-200 rounded-full animate-ping" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-orange-400 rounded-full animate-ping" />
           </div>
           <span className="text-xs font-bold hidden sm:inline-block pr-1">
             Chat on WhatsApp
