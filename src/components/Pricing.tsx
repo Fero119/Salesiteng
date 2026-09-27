@@ -38,9 +38,9 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
             <div className="inline-flex items-center p-1 bg-zinc-200/80 rounded-full text-xs font-semibold">
               <button
                 onClick={() => setCurrency('NGN')}
-                className={`px-3.5 py-1.5 rounded-full transition-all ${
+                className={`px-4 py-2.5 sm:px-5 sm:py-2 rounded-full transition-all text-sm font-semibold ${
                   currency === 'NGN'
-                    ? 'bg-white text-zinc-900 shadow-xs'
+                    ? 'bg-white text-zinc-900 shadow-sm'
                     : 'text-zinc-600 hover:text-zinc-900'
                 }`}
               >
@@ -48,9 +48,9 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectPlan }) => {
               </button>
               <button
                 onClick={() => setCurrency('USD')}
-                className={`px-3.5 py-1.5 rounded-full transition-all ${
+                className={`px-4 py-2.5 sm:px-5 sm:py-2 rounded-full transition-all text-sm font-semibold ${
                   currency === 'USD'
-                    ? 'bg-white text-zinc-900 shadow-xs'
+                    ? 'bg-white text-zinc-900 shadow-sm'
                     : 'text-zinc-600 hover:text-zinc-900'
                 }`}
               >

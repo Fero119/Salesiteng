@@ -14,6 +14,7 @@ import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 import { MockupPreviewModal } from './components/MockupPreviewModal';
 import { MessageCircle } from 'lucide-react';
@@ -84,23 +85,7 @@ export default function App() {
       <Footer onOpenLeadModal={() => handleOpenLeadModal('starter')} />
 
       {/* Floating WhatsApp Action Pill for Quick Inquiries */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <a
-          href="https://wa.me/2348121805800?text=Hi%20SalesSite%20NG!%20%F0%9F%91%8B%20I%20am%20interested%20in%20your%20services.%20What%20do%20I%20do%20next%3F"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 group"
-          aria-label="Chat with SalesSite NG on WhatsApp"
-        >
-          <div className="relative">
-            <MessageCircle className="w-5 h-5 fill-white text-[#25D366]" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-orange-400 rounded-full animate-ping" />
-          </div>
-          <span className="text-xs font-bold hidden sm:inline-block pr-1">
-            Chat on WhatsApp
-          </span>
-        </a>
-      </div>
+      <FloatingWhatsApp />
 
 
 
