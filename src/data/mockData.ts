@@ -110,7 +110,7 @@ export const FAQ_ITEMS: FAQItem[] = [
     id: 'faq-1',
     question: 'How does your lead generation platform ensure qualified leads?',
     answer:
-      'Unlike generic brochure websites, our pages are engineered with interactive product selectors, clear pricing, and pre-formatted WhatsApp message triggers. When a prospect contacts you, their inquiry already contains their name, items of interest, budget, and location — no back-and-forth tyre-kicking.'
+      'Unlike generic brochure websites, our pages are engineered with interactive product selectors, clear pricing, and pre-formatted WhatsApp message triggers. When a prospect contacts you, their inquiry already contains their name, items of interest, budget, and location. No back-and-forth tyre-kicking.'
   },
   {
     id: 'faq-2',

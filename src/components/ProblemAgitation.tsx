@@ -54,7 +54,7 @@ export const ProblemAgitation: React.FC<ProblemAgitationProps> = ({ onOpenStrate
                 {[
                   "₦300,000+ upfront fee with zero guarantees.",
                   "Takes 6 to 12 weeks of delayed deadlines.",
-                  "No WhatsApp integration — 80% cart abandonment.",
+                  "No WhatsApp integration. 80% cart abandonment.",
                   "Designer disappears after launch."
                 ].map((text, i) => (
                   <motion.li 

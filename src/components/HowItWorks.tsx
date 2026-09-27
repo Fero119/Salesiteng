@@ -30,7 +30,7 @@ export const HowItWorks: React.FC = () => {
     {
       step: '01',
       title: 'Free Strategy Call',
-      description: 'Send us your Instagram page, product photos, or price list on a quick WhatsApp call. We map out exactly what your site will include — no cost, no obligation.',
+      description: 'Send us your Instagram page, product photos, or price list on a quick WhatsApp call. We map out exactly what your site will include. No cost, no obligation.',
       icon: PhoneCall,
       highlight: 'Low financial commitment',
       color: 'orange' as const
@@ -46,7 +46,7 @@ export const HowItWorks: React.FC = () => {
     {
       step: '03',
       title: 'Launch on Flat Subscription',
-      description: 'Your site goes live with direct WhatsApp checkout. From there, ₦15,000/month covers hosting, SSL, and updates — cancel anytime, no lock-in.',
+      description: 'Your site goes live with direct WhatsApp checkout. From there, ₦15,000/month covers hosting, SSL, and updates. Cancel anytime, no lock-in.',
       icon: Rocket,
       highlight: 'No lock-in, cancel anytime',
       color: 'amber' as const

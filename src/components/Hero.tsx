@@ -36,7 +36,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           transition={{ delay: 0.1, duration: 0.6 }}
           className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.1] mb-6 max-w-5xl text-balance"
         >
-          Get a WhatsApp Sales Website — <br className="hidden md:block" />
+          Get a WhatsApp Sales Website.<br className="hidden md:block" />
           Live in <motion.span 
             animate={{ filter: ["drop-shadow(0px 0px 4px rgba(249,115,22,0.3))", "drop-shadow(0px 0px 16px rgba(249,115,22,0.8))", "drop-shadow(0px 0px 4px rgba(249,115,22,0.3))"] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-base sm:text-lg text-zinc-600 max-w-3xl font-normal leading-relaxed text-balance mb-10"
         >
-          Your customer taps 'Order,' picks what they want, and it lands straight in your WhatsApp — ready to confirm and get paid. No agency fees, no months of waiting.
+          Your customer taps 'Order,' picks what they want, and it lands straight in your WhatsApp, ready to confirm and get paid. No agency fees, no months of waiting.
         </motion.p>
 
         {/* Buttons */}
