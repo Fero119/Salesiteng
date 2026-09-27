@@ -29,24 +29,24 @@ export const HowItWorks: React.FC = () => {
   const steps = [
     {
       step: '01',
-      title: 'Free Strategy Call & Mockup',
-      description: 'Share your Instagram page, current product photos, or price list. In 24 hours, our Lagos team crafts a custom mobile web mockup wired with WhatsApp checkout.',
+      title: 'Free Strategy Call',
+      description: 'Send us your Instagram page, product photos, or price list on a quick WhatsApp call. We map out exactly what your site will include — no cost, no obligation.',
       icon: PhoneCall,
       highlight: 'Low financial commitment',
-      color: 'blue' as const
+      color: 'orange' as const
     },
     {
       step: '02',
-      title: 'Review on Your Mobile Phone',
-      description: 'Open the live staging link on your phone. Test the buttons, test placing a mock order, and see how neatly formatted the WhatsApp order arrives.',
+      title: 'We Build It, Live in 48 Hours',
+      description: 'Once you pay the ₦30,000 setup fee, our Lagos team builds your custom WhatsApp sales site from scratch and delivers it live within 48 hours.',
       icon: Code2,
-      highlight: 'Live interactive staging',
+      highlight: 'Fast delivery',
       color: 'orange' as const
     },
     {
       step: '03',
       title: 'Launch on Flat Subscription',
-      description: 'Once satisfied, start your flat ₦15,000/month subscription. We connect your custom domain, handle cloud hosting, maintain SSL security, and update products.',
+      description: 'Your site goes live with direct WhatsApp checkout. From there, ₦15,000/month covers hosting, SSL, and updates — cancel anytime, no lock-in.',
       icon: Rocket,
       highlight: 'No lock-in, cancel anytime',
       color: 'amber' as const
