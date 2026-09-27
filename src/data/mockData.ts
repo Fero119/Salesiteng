@@ -68,7 +68,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: 'Summit Couture Lagos',
     location: 'Lekki Phase 1, Lagos',
     avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=160&auto=format&fit=crop&q=80',
-    metric: '+380% WhatsApp Orders'
+    metric: 'Easier Ordering Process'
   },
   {
     id: '2',
@@ -79,7 +79,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: 'Peak Kitchens & Grills',
     location: 'Wuse 2, Abuja',
     avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&auto=format&fit=crop&q=80',
-    metric: '₦1.8M Monthly WhatsApp Sales'
+    metric: '24/7 Availability'
   },
   {
     id: '3',
@@ -90,7 +90,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: 'Apex Logistics & Freight',
     location: 'Port Harcourt',
     avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&auto=format&fit=crop&q=80',
-    metric: '48hr Turnaround Time'
+    metric: 'Fast Setup'
   },
   {
     id: '4',
@@ -101,7 +101,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: 'BrightGlow Aesthetics Salon',
     location: 'Ikeja, Lagos',
     avatarUrl: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=160&auto=format&fit=crop&q=80',
-    metric: '68% Repeat Customer Rate'
+    metric: 'Seamless Reordering'
   }
 ];
 

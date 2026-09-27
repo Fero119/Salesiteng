@@ -26,7 +26,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
             className="lg:col-span-4 lg:sticky lg:top-32"
           >
             <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 leading-[1.15]">
-              Join 240+ SMEs <br />
+              Join Nigerian SMEs <br />
               Selling on WhatsApp
             </h2>
             <p className="mt-4 text-base text-zinc-500 max-w-sm leading-relaxed">
@@ -45,30 +45,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
               />
             </div>
 
-            {/* SME stats */}
-            <div className="mt-12 pt-8 border-t border-zinc-100 flex items-center gap-8">
-              <div>
-                <p className="text-3xl font-extrabold text-zinc-950">240+</p>
-                <p className="text-xs text-zinc-500 mt-0.5">SME Sites Built</p>
-              </div>
-              <div className="h-8 w-px bg-zinc-200" />
-              <div>
-                <p className="text-3xl font-extrabold text-orange-600">4.9/5</p>
-                <div className="flex items-center gap-0.5 mt-0.5">
-                  {[...Array(5)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.5 + i * 0.1, type: "spring", stiffness: 300 }}
-                    >
-                      <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
+
           </motion.div>
 
           {/* Right Column: Staggered Cards */}

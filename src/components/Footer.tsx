@@ -119,6 +119,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadModal }) => {
             })}
           </div>
 
+          {/* Trust Signals & Legal Links */}
+          <div className="flex flex-col sm:flex-row items-center gap-6 my-2">
+            <div className="flex items-center gap-2 bg-zinc-900 px-4 py-2 rounded-xl border border-zinc-800 shadow-sm">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#0ba4db]" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm-1 14.5v-3H8v3H6v-9h2v4h3v-4h2v9h-2z" />
+              </svg>
+              <span className="text-xs font-semibold text-zinc-300 tracking-wide">Secured by Paystack</span>
+            </div>
+            
+            <div className="flex items-center flex-wrap justify-center gap-4 text-[11px] sm:text-xs text-zinc-500 font-medium">
+              <a href="#terms" className="hover:text-zinc-300 transition-colors">Terms of Service</a>
+              <a href="#cancellation" className="hover:text-zinc-300 transition-colors">Refund & Cancellation Policy</a>
+              <span className="text-zinc-700 hidden sm:inline">|</span>
+              <span className="text-zinc-400 font-mono">RC 1948234</span>
+            </div>
+          </div>
+
           <div className="text-zinc-600 text-xs md:text-sm flex flex-wrap items-center justify-center gap-3 sm:gap-6">
             <span>© {new Date().getFullYear()} SalesSite NG Ltd.</span>
             <span className="hidden sm:inline">|</span>
