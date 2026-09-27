@@ -316,7 +316,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
             </div>
             <div className="max-w-md">
               <p className="text-sm sm:text-base text-zinc-500 leading-relaxed">
-                Experience the transformative impact of our platform's key benefits, tailored to maximize your success. From increased lead generation to streamlined workflows, we empower you to achieve your goals efficiently and effectively.
+                Here's what changes: people messaging you already know what they want and can pay for it, you stop retyping the same price list all day, and you can see how many people looked at your catalogue this week.
               </p>
             </div>
           </motion.div>
