@@ -203,29 +203,29 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
         {/* Bottom Split Row */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
-          {/* Left: Professional Client Support Photo */}
+          {/* Left: Professional Client Support Info Card */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-5 rounded-[20px] overflow-hidden relative min-h-[160px] shadow-sm bg-gradient-to-br from-zinc-800 to-zinc-950 group flex flex-col justify-end"
+            className="md:col-span-5 rounded-[20px] bg-gradient-to-br from-orange-500 to-orange-600 p-6 sm:p-8 flex flex-col justify-center text-white shadow-md relative overflow-hidden min-h-[160px]"
           >
-            <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80"
-              alt="SalesSite NG Client Support Representative"
-              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              referrerPolicy="no-referrer"
-            />
-            {/* Measured contrast scrim */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-5">
-              <span className="text-[9px] uppercase tracking-wider font-semibold text-orange-400">
+            {/* Decorative background shapes */}
+            <div className="absolute -top-12 -right-12 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-black/10 rounded-full blur-xl pointer-events-none" />
+            
+            <div className="relative z-10">
+              <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4">
+                <MessageSquare className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-orange-200 block mb-1">
                 Lagos Support Desk
               </span>
-              <p className="text-white text-sm font-bold mt-0.5">
+              <h3 className="text-lg font-bold text-white mb-2">
                 Dedicated WhatsApp Concierge
-              </p>
-              <p className="text-zinc-300 text-[10px] mt-1 max-w-[95%] leading-tight">
+              </h3>
+              <p className="text-orange-100 text-xs sm:text-sm leading-relaxed max-w-[95%]">
                 Real humans in Nigeria helping you update your catalogue, adjust prices, and run promos anytime.
               </p>
             </div>
