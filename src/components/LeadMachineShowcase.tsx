@@ -24,11 +24,11 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-950">
-            Turn Traffic Into <br />
-            <span className="text-zinc-900">High-Paying WhatsApp Customers</span>
+            Stop Losing Sales to <br />
+            <span className="text-zinc-900">Cluttered Instagram DMs</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-zinc-500 leading-relaxed text-balance">
-            Explore how our high-converting subscription websites seamlessly convert visitors into instant WhatsApp orders and recurring Nigerian customers.
+            Forget "how much is this?" messages. We build you a professional storefront that captures orders, formats them neatly, and sends them straight to your WhatsApp.
           </p>
         </motion.div>
 
@@ -50,7 +50,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-2 right-4 bg-white px-5 py-2.5 rounded-2xl shadow-md border border-zinc-100/60"
               >
-                <span className="text-2xl font-bold text-zinc-900 tracking-tight">₦1,250</span>
+                <span className="text-2xl font-bold text-zinc-900 tracking-tight">₦45,000</span>
               </motion.div>
 
               {/* Curve Tag */}
@@ -64,7 +64,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                     <path d="M1 12 C 6 2, 12 14, 23 2" />
                   </svg>
                 </div>
-                <span className="text-[11px] font-semibold text-orange-600">-38%</span>
+                <span className="text-[11px] font-semibold text-orange-600">New Order</span>
               </motion.div>
 
               {/* Green Icon Note */}
@@ -77,18 +77,18 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                   <MessageSquare className="w-3.5 h-3.5" />
                 </div>
                 <div className="text-left">
-                  <span className="text-xs font-bold text-zinc-800 block">1,242</span>
-                  <span className="text-[9px] text-zinc-400 block -mt-0.5">WhatsApp leads</span>
+                  <span className="text-xs font-bold text-zinc-800 block">Just Now</span>
+                  <span className="text-[9px] text-zinc-400 block -mt-0.5">WhatsApp Order</span>
                 </div>
               </motion.div>
             </div>
 
             <div className="mt-6 text-center z-10">
               <h3 className="text-lg font-semibold text-zinc-900">
-                Supercharge Your Cost per Lead
+                Organized, Ready-to-Pay Orders
               </h3>
               <p className="mt-2 text-xs text-zinc-500 leading-normal">
-                Cut paid ad waste. Route prospects directly to a tailored mobile catalogue that captures buyer intent right away.
+                Customers add items to cart and check out. You receive a perfectly formatted WhatsApp message with their exact order and delivery details.
               </p>
             </div>
           </motion.div>
@@ -103,10 +103,10 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
           >
             <div>
               <h3 className="text-lg font-semibold text-zinc-900">
-                Revenue Growth Visualization
+                Accept Payments Instantly
               </h3>
               <p className="mt-2 text-xs text-zinc-500 leading-normal">
-                Visualize revenue growth trends and patterns to make data-driven decisions for business expansion and optimization.
+                Integrate Paystack to collect card payments or transfers before they reach your WhatsApp. Or, offer Pay on Delivery securely.
               </p>
             </div>
 
@@ -157,10 +157,10 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
           >
             <div>
               <h3 className="text-lg font-semibold text-zinc-900">
-                Leads Accelerator
+                Perfect for Ads Traffic
               </h3>
               <p className="mt-2 text-xs text-zinc-500 leading-normal">
-                From automated WhatsApp order forms to instant customer qualification, streamline your entire sales intake.
+                Sending Facebook or Instagram ad traffic to your DMs wastes money. Send them to a fast-loading catalog that turns browsers into buyers.
               </p>
             </div>
 
@@ -172,7 +172,7 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 onClick={() => setCostPerLeadToggle(prev => (prev === 193 ? 257 : prev === 257 ? 375 : 193))}
                 className="flex-1 bg-white rounded-2xl p-4 border border-zinc-100 shadow-sm cursor-pointer select-none group relative z-10"
               >
-                <span className="text-[11px] font-medium text-zinc-400 block">Cost per Lead</span>
+                <span className="text-[11px] font-medium text-zinc-400 block">Customer Value</span>
                 <div className="mt-2 bg-zinc-900 text-white rounded-xl py-3 px-4 text-center group-hover:bg-zinc-800 transition-colors">
                   <span className="text-xl font-bold tracking-tight">₦{costPerLeadToggle * 10}</span>
                 </div>
@@ -240,10 +240,10 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
           >
             <div>
               <h3 className="text-base font-bold text-zinc-900">
-                Segmentation
+                Easy Product Management
               </h3>
               <p className="mt-1 text-[11px] text-zinc-500 leading-relaxed max-w-lg">
-                Effortlessly segment leads based on customizable criteria for targeted engagement and enhanced conversion rates.
+                Effortlessly organize your products into categories, manage variants like sizes and colors, and run flash sales with a few taps.
               </p>
             </div>
 
@@ -352,10 +352,10 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
               <div className="flex-1">
                 <span className="text-xs font-mono text-orange-500 font-bold tracking-wider uppercase mb-2 block">01</span>
                 <h3 className="text-xl font-bold text-zinc-900 mb-2">
-                  Leads Segmentation
+                  Mobile-First Catalog
                 </h3>
                 <p className="text-sm text-zinc-500 leading-relaxed">
-                  Categorize inquiries by high-ticket orders, wholesale buyers, or retail shoppers so your sales team talks to ready spenders first.
+                  Beautiful product galleries, clear pricing, and size/color variants optimized specifically for Nigerian mobile shoppers.
                 </p>
               </div>
             </motion.div>
@@ -387,10 +387,10 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
               <div className="flex-1">
                 <span className="text-xs font-mono text-orange-500 font-bold tracking-wider uppercase mb-2 block">02</span>
                 <h3 className="text-xl font-bold text-zinc-900 mb-2">
-                  Real-Time Analytics
+                  Direct WhatsApp Checkout
                 </h3>
                 <p className="text-sm text-zinc-500 leading-relaxed">
-                  Instant WhatsApp notification the moment a customer fills a cart or inquires about a service, with zero delay.
+                  Zero friction. Customers don't need to create accounts or remember passwords. They simply tap "Order" and it opens a chat with you.
                 </p>
               </div>
             </motion.div>
@@ -409,21 +409,21 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                 className="w-full h-28 bg-[#f7f7f8] rounded-xl flex flex-col justify-center p-4 border border-zinc-100/80 mb-6"
               >
-                <span className="text-[10px] text-zinc-400 block mb-1">Meetings</span>
+                <span className="text-[10px] text-zinc-400 block mb-1">Update Request</span>
                 <span className="text-sm font-bold text-zinc-800">11:00 am WAT</span>
                 <div className="flex items-center gap-1.5 mt-2">
                   <div className="w-4 h-4 rounded-full bg-orange-400 flex items-center justify-center text-[9px] text-white">✓</div>
-                  <span className="text-[10px] text-zinc-500">Client Call</span>
+                  <span className="text-[10px] text-zinc-500">Price Updated</span>
                 </div>
               </motion.div>
 
               <div className="flex-1">
                 <span className="text-xs font-mono text-orange-500 font-bold tracking-wider uppercase mb-2 block">03</span>
                 <h3 className="text-xl font-bold text-zinc-900 mb-2">
-                  Strategy Call Scheduler
+                  Done-For-You Updates
                 </h3>
                 <p className="text-sm text-zinc-500 leading-relaxed">
-                  Let your high-ticket clients book direct 1-on-1 strategy sessions or consultation appointments automatically.
+                  Need to add new products or update prices? Just message our Lagos support team and we'll handle the technical heavy lifting for you.
                 </p>
               </div>
             </motion.div>
