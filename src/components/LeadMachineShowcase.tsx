@@ -323,10 +323,12 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {/* Card 01 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.1 }}
+              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-xl transition-shadow flex flex-col cursor-default"
             >
               <motion.div 
                 animate={{ y: [0, -3, 0] }}
@@ -360,11 +362,12 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
 
             {/* Card 02 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.25 }}
+              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-xl transition-shadow flex flex-col cursor-default"
             >
               <motion.div 
                 animate={{ y: [0, -3, 0] }}
@@ -394,11 +397,12 @@ export const LeadMachineShowcase: React.FC<LeadMachineShowcaseProps> = ({ onOpen
 
             {/* Card 03 */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+              initial={{ opacity: 0, y: 40, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ type: "spring", stiffness: 100, damping: 15, delay: 0.4 }}
+              className="bg-white rounded-[24px] p-6 border border-zinc-100 shadow-sm hover:shadow-xl transition-shadow flex flex-col cursor-default"
             >
               <motion.div 
                 animate={{ y: [0, -3, 0] }}
