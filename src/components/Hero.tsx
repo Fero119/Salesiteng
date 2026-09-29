@@ -4,11 +4,11 @@ import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { ChevronRight, Star, CheckCircle2 } from 'lucide-react';
 
 interface HeroProps {
-  onOpenLeadModal: () => void;
+  onOpenStrategyCall: () => void;
   onOpenMockupDemo: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenStrategyCall, onOpenMockupDemo }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenLeadModal, onOpenMockupDemo })
         >
           <LiquidMetalButton
             label="Book My Free Strategy Call"
-            onClick={onOpenLeadModal}
+            onClick={onOpenStrategyCall}
             width={300}
           />
           <button

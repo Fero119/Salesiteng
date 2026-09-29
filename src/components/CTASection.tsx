@@ -4,10 +4,10 @@ import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { motion } from 'motion/react';
 
 interface CTASectionProps {
-  onOpenLeadModal: () => void;
+  onOpenStrategyCall: () => void;
 }
 
-export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
+export const CTASection: React.FC<CTASectionProps> = ({ onOpenStrategyCall }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,7 +52,7 @@ export const CTASection: React.FC<CTASectionProps> = ({ onOpenLeadModal }) => {
 
           <div className="mt-10 flex flex-col items-center justify-center">
             <LiquidMetalButton
-              onClick={onOpenLeadModal}
+              onClick={onOpenStrategyCall}
               width={300}
               label="Book My Free Strategy Call"
             />

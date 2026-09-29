@@ -39,7 +39,7 @@ export default function App() {
   };
 
   const handleOpenStrategyCall = () => {
-    window.open(WHATSAPP_URL, "_blank");
+    window.open("https://calendly.com/feranmiakingbola24/30min", "_blank");
   };
 
   if (currentHash === '#terms') {
@@ -63,13 +63,13 @@ export default function App() {
       <main className="flex-grow">
         {/* Hero Section */}
         <Hero
-          onOpenLeadModal={() => handleOpenLeadModal('starter')}
+          onOpenStrategyCall={() => handleOpenStrategyCall()}
           onOpenMockupDemo={() => setMockupDemoOpen(true)}
         />
 
         {/* The Problem / Villain */}
         <ProblemAgitation 
-          onOpenStrategyCall={() => handleOpenStrategyCall()}
+          onOpenStrategyCall={() => handleOpenLeadModal('starter')}
         />
 
         {/* The Guide's Value & Benefits */}
@@ -79,7 +79,7 @@ export default function App() {
 
         {/* The Guide's Authority */}
         <Testimonials
-          onOpenLeadModal={() => handleOpenLeadModal('starter')}
+          onOpenStrategyCall={() => handleOpenStrategyCall()}
         />
 
         {/* The Plan */}
@@ -95,7 +95,7 @@ export default function App() {
 
         {/* Transform Your Approach CTA & Newsletter */}
         <CTASection
-          onOpenLeadModal={() => handleOpenLeadModal('starter')}
+          onOpenStrategyCall={() => handleOpenStrategyCall()}
         />
       </main>
 
@@ -111,7 +111,7 @@ export default function App() {
       <MockupPreviewModal
         isOpen={mockupDemoOpen}
         onClose={() => setMockupDemoOpen(false)}
-        onOpenStartNow={() => handleOpenLeadModal('starter')}
+        onOpenStrategyCall={() => handleOpenStrategyCall()}
       />
       </div>
     </KineticGrid>

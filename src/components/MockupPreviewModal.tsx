@@ -4,13 +4,13 @@ import { X, Smartphone, Monitor, ShoppingBag, MessageCircle, Star, Check } from 
 interface MockupPreviewModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenStartNow: () => void;
+  onOpenStrategyCall: () => void;
 }
 
 export const MockupPreviewModal: React.FC<MockupPreviewModalProps> = ({
   isOpen,
   onClose,
-  onOpenStartNow
+  onOpenStrategyCall
 }) => {
   const [activeDevice, setActiveDevice] = useState<'mobile' | 'desktop'>('mobile');
   const [cart, setCart] = useState<Array<{ name: string; price: number }>>([
@@ -240,7 +240,7 @@ export const MockupPreviewModal: React.FC<MockupPreviewModalProps> = ({
           <button
             onClick={() => {
               onClose();
-              onOpenStartNow();
+              onOpenStrategyCall();
             }}
             className="w-full sm:w-auto px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs sm:text-sm transition-colors shadow-sm whitespace-nowrap"
           >

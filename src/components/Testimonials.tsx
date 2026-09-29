@@ -5,10 +5,10 @@ import { LiquidMetalButton } from '@/components/ui/liquid-metal-button';
 import { motion } from 'motion/react';
 
 interface TestimonialsProps {
-  onOpenLeadModal: () => void;
+  onOpenStrategyCall: () => void;
 }
 
-export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) => {
+export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenStrategyCall }) => {
   const sectionRef = useRef<HTMLElement>(null);
 
   return (
@@ -34,7 +34,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ onOpenLeadModal }) =
             </p>
             <div className="mt-8">
               <LiquidMetalButton
-                onClick={onOpenLeadModal}
+                onClick={onOpenStrategyCall}
                 width={260}
                 label={
                   <>
