@@ -68,13 +68,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenStrategyCall, onOpenMockupDemo
             onClick={onOpenStrategyCall}
             width={300}
           />
-          <button
-            onClick={onOpenMockupDemo}
-            className="h-[46px] px-6 rounded-full border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 text-sm font-semibold transition-all duration-200 flex items-center justify-center gap-2 shadow-sm hover:shadow-md w-full sm:w-auto"
-          >
-            <span>View Live Demo</span>
-            <ChevronRight className="w-4 h-4 text-zinc-400" />
-          </button>
         </motion.div>
 
         {/* Dashboard / Floating Elements Area */}
