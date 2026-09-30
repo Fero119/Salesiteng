@@ -113,8 +113,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLeadModal }) => {
           {/* Social Pills */}
           <div className="flex items-center gap-4">
             {[
-              { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-              { icon: TiktokIcon, href: "https://tiktok.com", label: "TikTok" },
+              { icon: Instagram, href: "https://www.instagram.com/salessite_ng?stkn=MWdkNjU2NWppM21lcw==", label: "Instagram" },
+              { icon: TiktokIcon, href: "https://www.tiktok.com/@salessiteng?is_from_webapp=1&sender_device=pc", label: "TikTok" },
             ].map((social, idx) => {
               const Icon = social.icon;
               return (
